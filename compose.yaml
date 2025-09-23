@@ -1,0 +1,38 @@
+
+services:
+  symfony:
+    image: shinsenter/symfony
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mis_csvs:/csvs
+      - ./mis_scripts_mysql:/scripts
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8087:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+      PMA_USER: root
+      PMA_PASSWORD: root
+      PMA_PORT: 3306
+
+volumes:
+  mysql_data:
