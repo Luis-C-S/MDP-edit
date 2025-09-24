@@ -1,0 +1,44 @@
+cod_atributo_va;cod_idioma_alpha2;nom_atributo_va;fec_creacion;fec_actualizacion
+1;es;Importe;2023-10-31 00:00:00;2023-10-31 00:00:00
+1;en;Amount;2023-10-31 00:00:00;2023-10-31 00:00:00
+1;ga;Cantidade;2023-10-31 00:00:00;2023-10-31 00:00:00
+1;va;Import;2023-10-31 00:00:00;2023-10-31 00:00:00
+1;ca;Import;2023-10-31 00:00:00;2023-10-31 00:00:00
+1;eu;Zenbatekoa;2023-10-31 00:00:00;2023-10-31 00:00:00
+2;es;Peso;2023-10-31 00:00:00;2023-10-31 00:00:00
+3;es;Número de cuenta bancaria;2023-10-31 00:00:00;2023-10-31 00:00:00
+4;es;Transferencia agrupada (s/n);2023-10-31 00:00:00;2023-10-31 00:00:00
+5;es;Días de permanencia en la Oficina;2023-10-31 00:00:00;2023-10-31 00:00:00
+6;es;Número de intentos de entrega;2023-10-31 00:00:00;2023-10-31 00:00:00
+7;es;Complejidad de la gestión;2023-10-31 00:00:00;2023-10-31 00:00:00
+8;es;Tipo de documento 1;2023-10-31 00:00:00;2023-10-31 00:00:00
+9;es;Tipo de documento 2;2023-10-31 00:00:00;2023-10-31 00:00:00
+10;es;Tipo de documento 3;2023-10-31 00:00:00;2023-10-31 00:00:00
+11;es;Correo Electrónico;2023-10-31 00:00:00;2023-10-31 00:00:00
+12;es;DNI / NIF / DOI;2023-10-31 00:00:00;2023-10-31 00:00:00
+13;es;Fecha;2023-10-31 00:00:00;2023-10-31 00:00:00
+14;es;Indicador de franja horaria;2023-10-31 00:00:00;2023-10-31 00:00:00
+15;es;Estado de la autorización previa a la entrega;2023-10-31 00:00:00;2023-10-31 00:00:00
+16;es;Número de Apartado;2023-10-31 00:00:00;2023-10-31 00:00:00
+17;es;Oficina del Apartado;2023-10-31 00:00:00;2023-10-31 00:00:00
+18;es;Tipo de Mercancía;2023-10-31 00:00:00;2023-10-31 00:00:00
+19;es;Necesita Etiqueta;2023-10-31 00:00:00;2023-10-31 00:00:00
+20;es;Observación 1;2023-10-31 00:00:00;2023-10-31 00:00:00
+21;es;Observación 2;2023-10-31 00:00:00;2023-10-31 00:00:00
+22;es;Observación 3;2023-10-31 00:00:00;2023-10-31 00:00:00
+23;es;Gestión a Realizar;2023-10-31 00:00:00;2023-10-31 00:00:00
+24;es;Tipo de documento 1 - Documento de Identificación;2023-10-31 00:00:00;2023-10-31 00:00:00
+25;es;Momento de gestión;2023-10-31 00:00:00;2023-10-31 00:00:00
+26;es;Dirección Postal;2023-10-31 00:00:00;2023-10-31 00:00:00
+27;es;Tamaño palé;2024-01-19 00:00:00;2024-01-19 00:00:00
+28;es;Tiempo;2024-01-19 00:00:00;2024-01-19 00:00:00
+29;es;Comprobación de la mercancía del envío devuelto;2024-01-19 00:00:00;2024-01-19 00:00:00
+30;es;Tipo de trazabilidad de temperatura;2024-02-20 00:00:00;2024-02-20 00:00:00
+31;es;Método de retorno;2024-04-19 00:00:00;2024-04-19 00:00:00
+32;es;Código de envío de ida;2024-04-19 00:00:00;2024-04-19 00:00:00
+33;es;Texto a comunicar;2024-06-06 00:00:00;2024-06-06 00:00:00
+34;es;Número de teléfono móvil del remitente;2024-06-06 00:00:00;2024-06-06 00:00:00
+35;es;Número de teléfono móvil del destinatario;2024-06-06 00:00:00;2024-06-06 00:00:00
+36;es;Años a custodiar los documentos;2024-10-17 00:00:00;2024-10-17 00:00:00
+37;es;Número de documentos incluidos en la remesa;2024-10-17 00:00:00;2024-10-17 00:00:00
+38;es;Documento a consultar y entregar;2024-10-17 00:00:00;2024-10-17 00:00:00

@@ -1,0 +1,44 @@
+cod_documento;cod_idioma_alpha2;desc_documento;fec_creacion;fec_actualizacion
+1;es;DNI, Pasaporte o NIE;2023-10-31 00:00:00;2023-10-31 00:00:00
+2;es;DNI o Pasaporte;2023-10-31 00:00:00;2023-10-31 00:00:00
+3;es;DNI;2023-10-31 00:00:00;2023-10-31 00:00:00
+4;es;Pasaporte;2023-10-31 00:00:00;2023-10-31 00:00:00
+5;es;NIE;2023-10-31 00:00:00;2023-10-31 00:00:00
+6;es;Justificante de nº de cuenta;2023-10-31 00:00:00;2023-10-31 00:00:00
+7;es;Justificante de ingresos;2023-10-31 00:00:00;2023-10-31 00:00:00
+8;es;Carné de conducir ;2023-10-31 00:00:00;2023-10-31 00:00:00
+9;es;Tarjeta sanitaria;2023-10-31 00:00:00;2023-10-31 00:00:00
+10;es;Vida laboral;2023-10-31 00:00:00;2023-10-31 00:00:00
+11;es;Informe médico;2023-10-31 00:00:00;2023-10-31 00:00:00
+12;es;Libro de familia;2023-10-31 00:00:00;2023-10-31 00:00:00
+13;es;Certificado de empadronamiento;2023-10-31 00:00:00;2023-10-31 00:00:00
+14;es;Contrato ;2023-10-31 00:00:00;2023-10-31 00:00:00
+15;es;Formulario;2023-10-31 00:00:00;2023-10-31 00:00:00
+16;es;Otros;2023-10-31 00:00:00;2023-10-31 00:00:00
+17;es;DNI, Pasaporte o NIE con validación;2023-10-31 00:00:00;2023-10-31 00:00:00
+18;es;DNI o Pasaporte con validación;2023-10-31 00:00:00;2023-10-31 00:00:00
+19;es;DNI con validación;2023-10-31 00:00:00;2023-10-31 00:00:00
+20;es;Pasaporte con validación;2023-10-31 00:00:00;2023-10-31 00:00:00
+21;es;NIE con validación;2023-10-31 00:00:00;2023-10-31 00:00:00
+22;es;Fácil;2023-10-31 00:00:00;2023-10-31 00:00:00
+23;es;Medio;2023-10-31 00:00:00;2023-10-31 00:00:00
+24;es;Complejo;2023-10-31 00:00:00;2023-10-31 00:00:00
+25;es;Si;2023-10-31 00:00:00;2023-10-31 00:00:00
+26;es;No;2023-10-31 00:00:00;2023-10-31 00:00:00
+27;es;Envío se encuentra pendiente de autorización del cliente;2023-10-31 00:00:00;2023-10-31 00:00:00
+28;es;Envío autorizado para la entrega;2023-10-31 00:00:00;2023-10-31 00:00:00
+29;es;Cancelada la entrega del envío;2023-10-31 00:00:00;2023-10-31 00:00:00
+30;es;Entrega;2023-10-31 00:00:00;2023-10-31 00:00:00
+31;es;Admisión;2023-10-31 00:00:00;2023-10-31 00:00:00
+35;es;Sin trazabilidad de temperatura;2024-02-20 00:00:00;2024-02-20 00:00:00
+36;es;Trazabilidad de temperatura Offline (uso de datalogger Offline);2024-02-20 00:00:00;2024-02-20 00:00:00
+37;es;Trazabilidad de temperatura Online (uso de datalogger Online);2024-02-20 00:00:00;2024-02-20 00:00:00
+38;es;Trazabilidad de temperatura en la entrega (uso de tag NFC);2024-02-20 00:00:00;2024-02-20 00:00:00
+39;es;Minerva;2024-04-19 00:00:00;2024-04-19 00:00:00
+40;es;Lince;2024-04-19 00:00:00;2024-04-19 00:00:00
+41;es;Intercambio de ficheros;2024-04-19 00:00:00;2024-04-19 00:00:00
+32;es;Micro Pale / Mini Pale;2024-01-19 00:00:00;2024-05-03 00:00:00
+33;es;Small Pale / Medium Pale / Standard Pale;2024-01-19 00:00:00;2024-05-03 00:00:00
+34;es;Maxi pale / Big Pale;2024-01-19 00:00:00;2024-05-03 00:00:00
+42;es;EDITRAN;2024-10-17 00:00:00;2024-10-17 00:00:00
+43;es;CD-ROM;2024-10-17 00:00:00;2024-10-17 00:00:00

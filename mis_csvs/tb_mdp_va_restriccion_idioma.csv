@@ -1,0 +1,95 @@
+cod_va;cod_va_rest;cod_idioma_alpha2;desc_restriccion;fec_creacion;fec_actualizacion
+VADEPA;SEESPA;es;Sólo se puede contratar una modalidad de seguro: si se contrata el Valor Declarado de paquetería, no se puede contratar el Seguro Estándar;2023-10-31 00:00:00;2023-10-31 00:00:00
+SEESPA;VADEPA;es;Sólo se puede contratar una modalidad de seguro: si se contrata el Seguro Estándar, no se puede contratar el Valor Declarado de paquetería;2023-10-31 00:00:00;2023-10-31 00:00:00
+PEE5TO;PEE10TO;es;Sólo se puede contratar una modalidad de prueba de entrega: si se contrata la Prueba de Entrega Electrónica con custodia de 5 años, no se puede contratar la misma con custodia de 10 años;2023-10-31 00:00:00;2023-10-31 00:00:00
+PEE5TO;PEE15TO;es;Sólo se puede contratar una modalidad de prueba de entrega: si se contrata la Prueba de Entrega Electrónica con custodia de 5 años, no se puede contratar la misma con custodia de 15 años;2023-10-31 00:00:00;2023-10-31 00:00:00
+PEE10TO;PEE5TO;es;Sólo se puede contratar una modalidad de prueba de entrega: si se contrata la Prueba de Entrega Electrónica con custodia de 10 años, no se puede contratar la misma con custodia de 5 años;2023-10-31 00:00:00;2023-10-31 00:00:00
+PEE10TO;PEE15TO;es;Sólo se puede contratar una modalidad de prueba de entrega: si se contrata la Prueba de Entrega Electrónica con custodia de 10 años, no se puede contratar la misma con custodia de 15 años;2023-10-31 00:00:00;2023-10-31 00:00:00
+PEE15TO;PEE5TO;es;Sólo se puede contratar una modalidad de prueba de entrega: si se contrata la Prueba de Entrega Electrónica con custodia de 15 años, no se puede contratar la misma con custodia de 5 años;2023-10-31 00:00:00;2023-10-31 00:00:00
+PEE15TO;PEE10TO;es;Sólo se puede contratar una modalidad de prueba de entrega: si se contrata la Prueba de Entrega Electrónica con custodia de 15 años, no se puede contratar la misma con custodia de 10 años;2023-10-31 00:00:00;2023-10-31 00:00:00
+SOACPPA;SOACMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Pequeño, no se puede seleccionar el Sobre Acolchado Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACPPA;SOACGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Pequeño, no se puede seleccionar el Sobre Acolchado Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACPPA;SOSEPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Pequeño, no se puede seleccionar el Sobre Semirrígido Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACPPA;SOSEMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Pequeño, no se puede seleccionar el Sobre Semirrígido Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACPPA;SOSEGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Pequeño, no se puede seleccionar el Sobre Semirrígido Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACPPA;CAJPEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Pequeño, no se puede seleccionar la Caja Pequeña;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACPPA;CAJMEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Pequeño, no se puede seleccionar la Caja Mediana;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACPPA;CAJGRPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Pequeño, no se puede seleccionar la Caja Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACMPA;SOACPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Mediano, no se puede seleccionar el Sobre Acolchado Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACMPA;SOACGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Mediano, no se puede seleccionar el Sobre Acolchado Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACMPA;SOSEPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Mediano, no se puede seleccionar el Sobre Semirrígido Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACMPA;SOSEMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Mediano, no se puede seleccionar el Sobre Semirrígido Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACMPA;SOSEGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Mediano, no se puede seleccionar el Sobre Semirrígido Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACMPA;CAJPEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Mediano, no se puede seleccionar la Caja Pequeña;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACMPA;CAJMEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Mediano, no se puede seleccionar la Caja Mediana;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACMPA;CAJGRPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Mediano, no se puede seleccionar la Caja Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACGPA;SOACPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Grande, no se puede seleccionar el Sobre Acolchado Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACGPA;SOACMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Grande, no se puede seleccionar el Sobre Acolchado Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACGPA;SOSEPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Grande, no se puede seleccionar el Sobre Semirrígido Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACGPA;SOSEMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Grande, no se puede seleccionar el Sobre Semirrígido Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACGPA;SOSEGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Grande, no se puede seleccionar el Sobre Semirrígido Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACGPA;CAJPEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Grande, no se puede seleccionar la Caja Pequeña;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACGPA;CAJMEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Grande, no se puede seleccionar la Caja Mediana;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOACGPA;CAJGRPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Acolchado Grande, no se puede seleccionar la Caja Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEPPA;SOACPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Pequeño, no se puede seleccionar el Sobre Acolchado Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEPPA;SOACMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Pequeño, no se puede seleccionar el Sobre Acolchado Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEPPA;SOACGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Pequeño, no se puede seleccionar el Sobre Acolchado Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEPPA;SOSEMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Pequeño, no se puede seleccionar el Sobre Semirrígido Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEPPA;SOSEGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Pequeño, no se puede seleccionar el Sobre Semirrígido Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEPPA;CAJPEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Pequeño, no se puede seleccionar la Caja Pequeña;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEPPA;CAJMEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Pequeño, no se puede seleccionar la Caja Mediana;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEPPA;CAJGRPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Pequeño, no se puede seleccionar la Caja Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEMPA;SOACPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Mediano, no se puede seleccionar el Sobre Acolchado Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEMPA;SOACMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Mediano, no se puede seleccionar el Sobre Acolchado Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEMPA;SOACGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Mediano, no se puede seleccionar el Sobre Acolchado Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEMPA;SOSEPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Mediano, no se puede seleccionar el Sobre Semirrígido Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEMPA;SOSEGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Mediano, no se puede seleccionar el Sobre Semirrígido Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEMPA;CAJPEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Mediano, no se puede seleccionar la Caja Pequeña;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEMPA;CAJMEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Mediano, no se puede seleccionar la Caja Mediana;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEMPA;CAJGRPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Mediano, no se puede seleccionar la Caja Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEGPA;SOACPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Grande, no se puede seleccionar el Sobre Acolchado Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEGPA;SOACMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Grande, no se puede seleccionar el Sobre Acolchado Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEGPA;SOACGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Grande, no se puede seleccionar el Sobre Acolchado Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEGPA;SOSEPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Grande, no se puede seleccionar el Sobre Semirrígido Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEGPA;SOSEMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Grande, no se puede seleccionar el Sobre Semirrígido Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEGPA;CAJPEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Grande, no se puede seleccionar la Caja Pequeña;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEGPA;CAJMEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Grande, no se puede seleccionar la Caja Mediana;2024-01-12 00:00:00;2024-01-12 00:00:00
+SOSEGPA;CAJGRPA;es;Sólo se puede seleccionar un embalaje: si se selecciona el Sobre Semirrígido Grande, no se puede seleccionar la Caja Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJPEPA;SOACPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Pequeña, no se puede seleccionar el Sobre Acolchado Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJPEPA;SOACMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Pequeña, no se puede seleccionar el Sobre Acolchado Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJPEPA;SOACGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Pequeña, no se puede seleccionar el Sobre Acolchado Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJPEPA;SOSEPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Pequeña, no se puede seleccionar el Sobre Semirrígido Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJPEPA;SOSEMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Pequeña, no se puede seleccionar el Sobre Semirrígido Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJPEPA;SOSEGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Pequeña, no se puede seleccionar el Sobre Semirrígido Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJPEPA;CAJMEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Pequeña, no se puede seleccionar la Caja Mediana;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJPEPA;CAJGRPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Pequeña, no se puede seleccionar la Caja Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJMEPA;SOACPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Mediana, no se puede seleccionar el Sobre Acolchado Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJMEPA;SOACMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Mediana, no se puede seleccionar el Sobre Acolchado Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJMEPA;SOACGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Mediana, no se puede seleccionar el Sobre Acolchado Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJMEPA;SOSEPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Mediana, no se puede seleccionar el Sobre Semirrígido Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJMEPA;SOSEMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Mediana, no se puede seleccionar el Sobre Semirrígido Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJMEPA;SOSEGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Mediana, no se puede seleccionar el Sobre Semirrígido Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJMEPA;CAJPEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Mediana, no se puede seleccionar la Caja Pequeña;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJMEPA;CAJGRPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Mediana, no se puede seleccionar la Caja Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJGRPA;SOACPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Grande, no se puede seleccionar el Sobre Acolchado Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJGRPA;SOACMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Grande, no se puede seleccionar el Sobre Acolchado Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJGRPA;SOACGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Grande, no se puede seleccionar el Sobre Acolchado Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJGRPA;SOSEPPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Grande, no se puede seleccionar el Sobre Semirrígido Pequeño;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJGRPA;SOSEMPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Grande, no se puede seleccionar el Sobre Semirrígido Mediano;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJGRPA;SOSEGPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Grande, no se puede seleccionar el Sobre Semirrígido Grande;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJGRPA;CAJPEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Grande, no se puede seleccionar la Caja Pequeña;2024-01-12 00:00:00;2024-01-12 00:00:00
+CAJGRPA;CAJMEPA;es;Sólo se puede seleccionar un embalaje: si se selecciona la Caja Grande, no se puede seleccionar la Caja Mediana;2024-01-12 00:00:00;2024-01-12 00:00:00
+REICPA;REDOPA;es;Sólo se puede contratar una modalidad de reembolso: si se contrata el Reembolso con ingreso en cuenta de paquetería nacional, no se puede contratar el Reembolso con pago en domicilio de paquetería nacional;2024-02-20 00:00:00;2024-02-20 00:00:00
+REDOPA;REICPA;es;Sólo se puede contratar una modalidad de reembolso: si se contrata el Reembolso con pago en domicilio de paquetería nacional, no se puede contratar el Reembolso con ingreso en cuenta de paquetería nacional;2024-02-20 00:00:00;2024-02-20 00:00:00
+ARNAPO;PEE5TO;es;Sólo se puede contratar una modalidad de prueba de entrega: si se contrata el Aviso de Recibo, no se puede contratar la Prueba de Entrega Electrónica con custodia de 5 años;2024-04-19 00:00:00;2024-04-19 00:00:00
+PEE5TO;ARNAPO;es;Sólo se puede contratar una modalidad de prueba de entrega: si se contrata la la Prueba de Entrega Electrónica con custodia de 5 años, no se puede contratar el Aviso de Recibo;2024-04-19 00:00:00;2024-04-19 00:00:00
+REICPO;REDOPO;es;Sólo se puede contratar una modalidad de reembolso: si se contrata el Reembolso con ingreso en cuenta bajo SPU, no se puede contratar el Reembolso con pago en domicilio bajo SPU;2024-04-19 00:00:00;2024-04-19 00:00:00
+REDOPO;REICPO;es;Sólo se puede contratar una modalidad de reembolso: si se contrata el Reembolso con pago en domicilio bajo SPU, no se puede contratar el Reembolso con ingreso en cuenta bajo SPU;2024-04-19 00:00:00;2024-04-19 00:00:00
+SMSRSF;SMSRDSF;es;Sólo se puede contratar un único envío de SMS para el remitente: si se contrata el envío de SMS unitario al remitente, no se puede contratar el paquetizado de envío de SMS al remitente y al destinatario;2024-06-06 00:00:00;2024-06-06 00:00:00
+SMSDSF;SMSRDSF;es;Sólo se puede contratar un único envío de SMS para el destinatario: si se contrata el envío de SMS unitario al destinatario, no se puede contratar el paquetizado de envío de SMS al remitente y al destinatario;2024-06-06 00:00:00;2024-06-06 00:00:00
+SMSRDSF;SMSRSF;es;Sólo se puede contratar un único envío de SMS para el remitente y el destinatario: si se contrata el paquetizado de envío de SMS al remitente y al destinatario, no se puede contratar el envío de SMS unitario al remitente;2024-06-06 00:00:00;2024-06-06 00:00:00
+SMSRDSF;SMSDSF;es;Sólo se puede contratar un único envío de SMS para el remitente y el destinatario: si se contrata el paquetizado de envío de SMS al remitente y al destinatario, no se puede contratar el envío de SMS unitario al destinatario;2024-06-06 00:00:00;2024-06-06 00:00:00
+RISIPO;RIENPO;es;Sólo se puede contratar una modalidad de retorno de información: si se contrata el Retorno de Información Simple, no se puede contratar el Retorno de Información Enriquecido;2024-08-30 00:00:00;2024-08-30 00:00:00
+RIENPO;RISIPO;es;Sólo se puede contratar una modalidad de retorno de información: si se contrata el Retorno de Información Enriquecido, no se puede contratar el Retorno de Información Simple;2024-08-30 00:00:00;2024-08-30 00:00:00
+EFHALO;EFHRLO;es;Sólo se puede asignar una franja horaria para la entrega: si se selecciona una franja horaria amplia, no se puede contratar una franja horaria reducida;2025-01-16 00:00:00;2025-01-16 00:00:00
+EFHRLO;EFHALO;es;Sólo se puede asignar una franja horaria para la entrega: si se contrata una franja horaria reducida, no se puede seleccionar una franja horaria amplia;2025-01-16 00:00:00;2025-01-16 00:00:00

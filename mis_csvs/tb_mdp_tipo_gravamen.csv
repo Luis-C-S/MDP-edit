@@ -1,0 +1,22 @@
+cod_tipo_gravamen;nom_tipo_gravamen;fec_creacion;fec_actualizacion
+A;No Sujeto clientes No Ceuta;2023-10-31 00:00:00;2023-10-31 00:00:00
+B;No Sujeto clientes No Melilla;2023-10-31 00:00:00;2023-10-31 00:00:00
+C;Repercutido 0%;2023-10-31 00:00:00;2023-10-31 00:00:00
+D;Superreducido 2;2023-10-31 00:00:00;2023-10-31 00:00:00
+E;Especial 1;2023-10-31 00:00:00;2023-10-31 00:00:00
+G;General;2023-10-31 00:00:00;2023-10-31 00:00:00
+I;Incrementado 1;2023-10-31 00:00:00;2023-10-31 00:00:00
+J;No Sujeto Clientes No UE;2023-10-31 00:00:00;2023-10-31 00:00:00
+K;No Sujeto Clientes UE;2023-10-31 00:00:00;2023-10-31 00:00:00
+L;No Sujeto clientes Grupo AAPP;2023-10-31 00:00:00;2023-10-31 00:00:00
+M;No sujeto clientes No Canarias;2023-10-31 00:00:00;2023-10-31 00:00:00
+N;No Sujeto;2023-10-31 00:00:00;2023-10-31 00:00:00
+P;Repercutido Financiero Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
+Q;Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
+R;Reducido;2023-10-31 00:00:00;2023-10-31 00:00:00
+S;Superreducido;2023-10-31 00:00:00;2023-10-31 00:00:00
+T;Exportación Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
+U;Franqueo Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
+V;SPU Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
+X;Especial 2;2023-10-31 00:00:00;2023-10-31 00:00:00
+Y;Especial 3;2023-10-31 00:00:00;2023-10-31 00:00:00

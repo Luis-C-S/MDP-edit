@@ -1,0 +1,38 @@
+cod_familia;cod_idioma_alpha2;nom_familia;desc_familia;mas_info;fec_creacion;fec_actualizacion
+1;es;Servicios de Comunicación;Envío de documentos;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+2;es;Servicios de Paquetería;Envío de paquetes;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+3;es;Servicios Digitales;Servicios prestados en un entorno digital;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+4;es;Servicios de Marketing, Libros y Publicaciones Periódicas;"Envío de libros, publicaciones y publicidad; además de otros servicios que te ayudarán a darte a conocer";"";2023-10-31 00:00:00;2023-10-31 00:00:00
+5;es;Servicios prestados en Oficinas;Servicios prestados en nuestra amplia red de Oficinas repartidas por todo el territorio nacional;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+6;es;Filatelia;Productos filatélicos: Sellos personalizados, libros de sellos, etc.;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+7;es;El Camino con Correos;Cuenta con Correos para cualquier necesidad que te puedas encontrar antes, durante o después del Camino;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+8;es;Correos Frío;Envíos con temperatura controlada, tanto alimentación como productos de salud;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+9;es;Correos Logística;Servicios logísticos para empresas: Almacenamiento, Picking, Packing, etc.;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+10;es;Otros Servicios;Servicios de diferentes tipologías prestados por Correos;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+201;es;Paquetería nacional;Envío de paquetes dentro del territorio nacional;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+202;es;Paquetería internacional;Envío de paquetes fuera del territorio nacional;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+1001;es;Tasas de Examen;Pago de la inscripción en la convocatoria de Ingreso de Personal Laboral Fijo;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+20101;es;Paquetería nacional para clientes con contrato;Envío de paquetes dentro del territorio nacional bajo la modalidad de contrato;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+20102;es;Paquetería nacional para clientes sin contrato;Envío de paquetes dentro del territorio nacional sin la necesidad de disponer de un contrato con Correos;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+20201;es;Paquetería internacional para clientes con contrato;Envío de paquetes fuera del territorio nacional bajo la modalidad de contrato;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+20202;es;Paquetería internacional para clientes sin contrato;Envío de paquetes fuera del territorio nacional sin la necesidad de disponer de un contrato con Correos;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+2010201;es;Ofertas comerciales  de paquetería nacional para clientes sin contrato;Envío de paquetes dentro del territorio nacional con los precios más competitivos del mercado;"";2023-10-31 00:00:00;2023-10-31 00:00:00
+901;es;Mercancía paletizada;Servicio expres y logística inversa de mercancía paletizada;"";2024-01-19 00:00:00;2024-01-19 00:00:00
+902;es;Correos XL;Servicio de transporte de mercancía voluminosa de gama blanca (frigoríficos, lavadoras, etc.) y gama marrón (TV), incluyendo su logística inversa;"";2024-01-19 00:00:00;2024-01-19 00:00:00
+2010101;es;Ofertas comerciales de paquetería nacional para clientes con contrato;Envío de paquetes dentro del territorio nacional con soluciones a medida para nuestros clientes con contrato;"";2024-02-20 00:00:00;2024-02-20 00:00:00
+201010101;es;Oferta comercial de paquetería voluminosa nacional para IKEA;Envío de paquetes voluminosos dentro del territorio nacional con soluciones a medida para IKEA;"";2024-02-20 00:00:00;2024-02-20 00:00:00
+801;es;Alimentación;Transporte de productos frescos a temperatura controlada para garantizar su calidad desde el origen hasta su destino;"";2024-02-20 00:00:00;2024-02-20 00:00:00
+802;es;Farmacia y Salud;Soluciones de transporte en frío para el envío de productos farmacéuticos, vacunas, cosmética o salud, garantizando su seguridad y control;"";2024-02-20 00:00:00;2024-02-20 00:00:00
+1002;es;Servicios de recogida a domicilio;Recogida a domicilio de los envíos del cliente sin necesidad de desplazamiento por su parte;;2024-04-19 00:00:00;2024-04-19 00:00:00
+100201;es;Servicios de recogida a domicilio para clientes con contrato;Recogida a domicilio de los envíos del cliente sin necesidad de desplazamiento por su parte bajo la modalidad de contrato;;2024-04-19 00:00:00;2024-04-19 00:00:00
+100202;es;Servicios de recogida a domicilio para clientes sin contrato;Recogida a domicilio de los envíos del cliente sin necesidad de desplazamiento por su parte sin la necesidad de disponer de un contrato con Correos;;2024-04-19 00:00:00;2024-04-19 00:00:00
+11;es;Servicios Financieros;Soluciones seguras y fáciles para envío de dinero, ingresos y retiradas de efectivo, compras y control de gastos, etc.;;2024-06-06 00:00:00;2024-06-06 00:00:00
+1101;es;Envío de Dinero;Servicio de envío de dinero de forma rápida y segura;;2024-06-06 00:00:00;2024-06-06 00:00:00
+110101;es;Envío de Dinero nacional;Servicio de envío de dinero de forma rápida y segura dentro del territorio nacional;;2024-06-06 00:00:00;2024-06-06 00:00:00
+110102;es;Envío de Dinero internacional;Servicio de envío de dinero de forma rápida y segura fuera del territorio nacional;;2024-06-06 00:00:00;2024-06-06 00:00:00
+101;es;Postal;Envíos de postal tradicional: Cartas, Notificaciones, Publicidad, Libros, etc.;;2024-08-30 00:00:00;2024-08-30 00:00:00
+10101;es;Cartas;Envíos de correspondencia y documentación prestados bajo el Servicio Postal Universal;;2024-08-30 00:00:00;2024-08-30 00:00:00
+2020201;es;Ofertas comerciales  de paquetería internacional para clientes sin contrato;Envío de paquetes fuera del territorio nacional con los precios más competitivos del mercado;;2024-08-30 00:00:00;2024-08-30 00:00:00
+1003;es;Gestiones aduaneras;Realización de las gestiones aduaneras necesarias para poder acreditar la salida o entrada de mercancía con países no europeos o territorios especiales;"";2024-10-17 00:00:00;2024-10-17 00:00:00
+100301;es;Gestiones aduaneras con tramitación presencial;Realización de forma presencial de las gestiones aduaneras necesarias para poder acreditar la salida o entrada de mercancía con países no europeos o territorios especiales;"";2024-10-17 00:00:00;2024-10-17 00:00:00
+100302;es;Gestiones aduaneras con tramitación digital;Realización de forma digital de las gestiones aduaneras necesarias para poder acreditar la salida o entrada de mercancía con países no europeos o territorios especiales;"";2024-10-17 00:00:00;2024-10-17 00:00:00

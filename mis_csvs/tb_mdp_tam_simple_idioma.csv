@@ -1,0 +1,47 @@
+cod_tam_simple;cod_idioma_alpha2;nom_tam_simple;desc_tam;desc_alto;desc_ancho;desc_largo;desc_peso;fec_creacion;fec_actualizacion
+1010000010;es;XS;30 x 20 x 20;Alto;Ancho;Largo;Hasta 2 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000010;en;XS;30 x 20 x 20;Height;Width;Long;Up to 2 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000010;ca;XS;30 x 20 x 20;Alt;Ample;Llarg;Fins a 2 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000010;eu;XS;30 x 20 x 20;Geldi;Zabal;Luzea;2 kg-ra arteko;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000010;ga;XS;30 x 20 x 20;Alto;Ancho;Longo;Ata 2 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000010;va;XS;30 x 20 x 20;Alt;Ample;Llarg;Fins a 2 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000020;es;S;35 x 35 x 25;Alto;Ancho;Largo;Hasta 5 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000020;en;S;35 x 35 x 25;Height;Width;Long;Up to 5 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000020;ca;S;35 x 35 x 25;Alt;Ample;Llarg;Fins a 5 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000020;eu;S;35 x 35 x 25;Geldi;Zabal;Luzea;5 kg-ra arteko;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000020;ga;S;35 x 35 x 25;Alto;Ancho;Longo;Ata 5 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000020;va;S;35 x 35 x 25;Alt;Ample;Llarg;Fins a 5 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000030;es;M;40 x 40 x 39;Alto;Ancho;Largo;Hasta 10 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000030;en;M;40 x 40 x 39;Height;Width;Long;Up to 10 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000030;ca;M;40 x 40 x 39;Alt;Ample;Llarg;Fins a 10 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000030;eu;M;40 x 40 x 39;Geldi;Zabal;Luzea;10 kg-ra arteko;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000030;ga;M;40 x 40 x 39;Alto;Ancho;Longo;Ata 10 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000030;va;M;40 x 40 x 39;Alt;Ample;Llarg;Fins a 10 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000040;es;L;55 x 55 x 39;Alto;Ancho;Largo;Hasta 20 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000040;en;L;55 x 55 x 39;Height;Width;Long;Up to 20 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000040;ca;L;55 x 55 x 39;Alt;Ample;Llarg;Fins a 20 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000040;eu;L;55 x 55 x 39;Geldi;Zabal;Luzea;20 kg-ra arteko;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000040;ga;L;55 x 55 x 39;Alto;Ancho;Longo;Ata 20 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1010000040;va;L;55 x 55 x 39;Alt;Ample;Llarg;Fins a 20 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1020000010;es;XS;8 x 18 x 39;Alto;Ancho;Largo;Hasta 1 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1020000020;es;S;9 x 24 x 39;Alto;Ancho;Largo;Hasta 1 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1020000030;es;M;9 x 49 x 39;Alto;Ancho;Largo;Hasta 5 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1020000040;es;L;19 x 49 x 39;Alto;Ancho;Largo;Hasta 10 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1020000050;es;XL;59 x 49 x 39;Alto;Ancho;Largo;Hasta 20 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1030000010;es;Pequeño;55 x 35 x 25;Alto;Ancho;Largo;Hasta 15 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1030000020;es;Grande;55 x 60 x 39;Alto;Ancho;Largo;Hasta 25 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+3010000010;es;Caja pequeña alimentación;45 x 45 x 35 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
+3010000020;es;Caja mediana alimentación;45 x 45 x 43 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
+3010000030;es;Caja grande alimentación;68 x 49 x 44 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
+3020000010;es;Caja pequeña farma;36 x 36 x 37 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
+3020000020;es;Caja mediana farma;42 x 43 x 43 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
+3020000030;es;Caja grande farma;47 x 47 x 48 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
+2010000010;es;Small Palet;1,2 x 0,8 x 2,2 m;Alto;Ancho;Largo;Hasta 300 kg;2024-01-19 00:00:00;2024-04-19 00:00:00
+2010000020;es;Medium Palet;1,2 x 1 x 1,8 m;Alto;Ancho;Largo;Hasta 450 kg;2024-01-19 00:00:00;2024-04-19 00:00:00
+2010000030;es;Standard Palet;1,2 x 1 x 2,2 m;Alto;Ancho;Largo;Hasta 600 kg;2024-01-19 00:00:00;2024-04-19 00:00:00
+2010000040;es;Big Palet;1,2 x 1 x 2,2 m;Alto;Ancho;Largo;Hasta 1.200 kg;2024-01-19 00:00:00;2024-04-19 00:00:00
+2010000001;es;Micro Palet;0,8 x 0,6 x 0,6 m;Alto;Ancho;Largo;Hasta 75 kg;2024-04-19 00:00:00;2024-04-19 00:00:00
+2010000005;es;Mini Palet;1,2 x 0,8 x 0,8 m;Alto;Ancho;Largo;Hasta 150 kg;2024-04-19 00:00:00;2024-04-19 00:00:00
+2010000035;es;Maxi Palet;1,2 x 1 x 1,8 m;Alto;Ancho;Largo;Hasta 800 kg;2024-04-19 00:00:00;2024-04-19 00:00:00
+3030000010;es;Mediana+alimentacion;48 x 48 x 47 cm;Alto;Ancho;Largo;Hasta 25 kg;2025-06-19 00:00:00;2025-06-19 00:00:00
+3040000020;es;Caja para bicicleta;1,5 x 0,9 x 0,3 m;Alto;Ancho;Largo;Hasta 20 kg;2025-08-11 00:00:00;2025-08-11 00:00:00

@@ -11,16 +11,23 @@ services:
 
   mysql:
     image: mysql:8.0
+    command: --local-infile=1
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: app
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_HOST: localhost
+
+      
     ports:
       - "3308:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./mis_csvs:/csvs
       - ./mis_scripts_mysql:/scripts
+      - ./.env:/scripts/.env
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

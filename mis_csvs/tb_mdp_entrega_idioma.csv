@@ -1,0 +1,17 @@
+cod_entrega;cod_idioma_alpha2;nom_entrega;fec_creacion;fec_actualizacion
+1;es;Domicilio;2023-10-31 00:00:00;2023-10-31 00:00:00
+2;es;Oficina;2023-10-31 00:00:00;2023-10-31 00:00:00
+3;es;Citypaq;2023-10-31 00:00:00;2023-10-31 00:00:00
+4;es;Buzón;2023-10-31 00:00:00;2023-10-31 00:00:00
+5;es;Reparto / Agente;2023-10-31 00:00:00;2023-10-31 00:00:00
+6;es;Atención al Cliente;2023-10-31 00:00:00;2023-10-31 00:00:00
+7;es;Pie de Calle;2024-01-19 00:00:00;2024-01-19 00:00:00
+8;es;Domicilio sin puesta en marcha;2024-01-19 00:00:00;2024-01-19 00:00:00
+9;es;Domicilio con puesta en marcha;2024-01-19 00:00:00;2024-01-19 00:00:00
+99;es;Ausente durante el reparto;2024-02-20 00:00:00;2024-02-20 00:00:00
+12;es;Unidad de Reparto / CTA;2024-03-13 00:00:00;2024-03-13 00:00:00
+13;es;Centro;2024-03-13 00:00:00;2024-03-13 00:00:00
+10;es;Domicilio con puesta en marcha;2024-01-19 00:00:00;2024-04-19 00:00:00
+14;es;UAM / Oficina / Centro;2024-04-19 00:00:00;2024-04-19 00:00:00
+18;es;Cuenta bancaria;2024-06-06 00:00:00;2024-06-06 00:00:00
+19;es;Digital;2024-10-17 00:00:00;2024-10-17 00:00:00

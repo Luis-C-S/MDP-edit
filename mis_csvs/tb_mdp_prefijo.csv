@@ -1,0 +1,42 @@
+cod_prod_prefijo;desc_prefijo;fec_creacion;fec_actualizacion
+PK;Admisión de Paq Premium con entrega en domicilio;2023-10-31 00:00:00;2023-10-31 00:00:00
+PL;Admisión de Paq Premium con entrega en oficina;2023-10-31 00:00:00;2023-10-31 00:00:00
+PW;Admisión de Paq Premium con entrega en Citypaq;2023-10-31 00:00:00;2023-10-31 00:00:00
+PQ;Admisión de Paq Estándar con entrega en domicilio;2023-10-31 00:00:00;2023-10-31 00:00:00
+PS;Admisión de Paq Estándar con entrega en oficina;2023-10-31 00:00:00;2023-10-31 00:00:00
+PY;Admisión de Paq Estándar con entrega en Citypaq;2023-10-31 00:00:00;2023-10-31 00:00:00
+EJ;Admisión de Paq Premium Internacional;2023-10-31 00:00:00;2023-10-31 00:00:00
+CP;Admisión de Paq Standard Internacional;2023-10-31 00:00:00;2023-10-31 00:00:00
+LX;Admisión de Paq Light Internacional;2023-10-31 00:00:00;2023-10-31 00:00:00
+CC;Admisión de Paquete Económico Internacional;2023-10-31 00:00:00;2023-10-31 00:00:00
+CV;Admisión de Paquete Económico Internacional con Valor Declarado;2023-10-31 00:00:00;2023-10-31 00:00:00
+PH;Admisión de Paq Ligero;2024-01-12 00:00:00;2024-01-12 00:00:00
+L3;Admisión de Paq Retorno;2024-01-12 00:00:00;2024-01-12 00:00:00
+XP;Admisión de Servicio Palet;2024-01-19 00:00:00;2024-01-19 00:00:00
+DV;Devolución de Servicio Palet;2024-01-19 00:00:00;2024-01-19 00:00:00
+XL;Admisión de Correos XL;2024-01-19 00:00:00;2024-01-19 00:00:00
+DG;Devolución de Correos XL;2024-01-19 00:00:00;2024-01-19 00:00:00
+FR;Admisión de Paq Frío;2024-02-20 00:00:00;2024-02-20 00:00:00
+FP;Admisión de Paq Frío para clientes esporádicos;2024-02-20 00:00:00;2024-02-20 00:00:00
+FM;Admisión de Paq Farma;2024-02-20 00:00:00;2024-02-20 00:00:00
+DM;Devolución de Paq Farma;2024-02-20 00:00:00;2024-02-20 00:00:00
+RI;Retorno de caja isoterma a centro;2024-02-20 00:00:00;2024-02-20 00:00:00
+PA;Admisión de Paquete Azul;2024-04-19 00:00:00;2024-04-19 00:00:00
+PD;Admisión de Paq Today con entrega en domicilio;2024-04-19 00:00:00;2024-04-19 00:00:00
+PF;Admisión de Paq Today con entrega en oficina;2024-04-19 00:00:00;2024-04-19 00:00:00
+PV;Admisión de Paq Today con entrega en Citypaq;2024-04-19 00:00:00;2024-04-19 00:00:00
+DQ;Devolución de Paq Premium / Paq Estándar / Paq Ligero;2024-04-19 00:00:00;2024-04-19 00:00:00
+SN;Admisión de Paq Retorno Premium;2024-04-19 00:00:00;2024-04-19 00:00:00
+LI;Admisión de Paq Retorno Premium con Entrega con Recogida;2024-04-19 00:00:00;2024-04-19 00:00:00
+CR;Devolución de Paq Premium Internacional / Paq Standard Internacional / Paq Light Internacional;2024-04-19 00:00:00;2024-04-19 00:00:00
+P3;Retorno de Servicio Palet;2024-04-19 00:00:00;2024-04-19 00:00:00
+X3;Retorno de Correos XL;2024-04-19 00:00:00;2024-04-19 00:00:00
+XI;Admisión de Cambio de Correos XL;2024-04-19 00:00:00;2024-04-19 00:00:00
+EG;Admisión de Paq Return Internacional;2024-05-29 00:00:00;2024-05-29 00:00:00
+ED;Envío de Dinero;2024-06-06 00:00:00;2024-06-06 00:00:00
+NV;Carta Certificada - Notificación Administrativa de Procedimiento Especial con admisión unitaria;2024-08-30 00:00:00;2024-08-30 00:00:00
+CX;Carta Certificada - Acuerdos Especiales con admisión unitaria;2024-10-17 00:00:00;2024-10-17 00:00:00
+DF;Devolución de Paq Frío;2024-10-17 00:00:00;2024-10-17 00:00:00
+RV;Carta Certificada de exportación;2024-10-17 00:00:00;2024-10-17 00:00:00
+UG;Carta Ordinaria de exportación;2024-10-17 00:00:00;2024-10-17 00:00:00
+PR;Admisión de Paq Estándar con entrega en oficina (de referencia);2025-06-30 00:00:00;2025-06-30 00:00:00
