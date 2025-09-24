@@ -1,0 +1,49 @@
+# =========================
+# Fin de línea coherente
+# =========================
+# Forzamos LF (Linux) en todo lo que se ejecute dentro de contenedores
+*.sh     text eol=lf
+*.csv    text eol=lf
+*.bash   text eol=lf
+*.env    text eol=lf
+*.yml    text eol=lf
+*.yaml   text eol=lf
+Dockerfile text eol=lf
+
+# Código backend (Symfony / PHP)
+*.php    text eol=lf
+*.twig   text eol=lf
+*.xml    text eol=lf
+*.json   text eol=lf
+
+# Código frontend (React / JS / CSS)
+*.js     text eol=lf
+*.jsx    text eol=lf
+*.ts     text eol=lf
+*.tsx    text eol=lf
+*.css    text eol=lf
+*.scss   text eol=lf
+*.html   text eol=lf
+
+# Archivos de configuración
+*.md     text eol=lf
+*.txt    text eol=lf
+*.ini    text eol=lf
+
+# =========================
+# Archivos binarios (sin conversión)
+# =========================
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.pdf    binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.eot    binary
+*.zip    binary
+*.gz     binary
+*.tar    binary
+*.7z     binary
