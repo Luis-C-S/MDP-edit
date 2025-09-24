@@ -8,6 +8,8 @@ services:
       - ./:/var/www/html
     depends_on:
       - mysql
+    environment:
+      DATABASE_URL: "mysql://root:root@mysql:3306/app?serverVersion=8.0&charset=utf8mb4"
 
   mysql:
     image: mysql:8.0
@@ -18,16 +20,13 @@ services:
       MYSQL_DATABASE: app
       MYSQL_USER: root
       MYSQL_PASSWORD: root
-      MYSQL_HOST: localhost
-
-      
+    
     ports:
       - "3308:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./mis_csvs:/csvs
       - ./mis_scripts_mysql:/scripts
-      - ./.env:/scripts/.env
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
