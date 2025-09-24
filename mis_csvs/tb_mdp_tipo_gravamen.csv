@@ -1,4 +1,4 @@
-﻿cod_tipo_gravamen;nom_tipo_gravamen;fec_creacion;fec_actualizacion
+cod_tipo_gravamen;nom_tipo_gravamen;fec_creacion;fec_actualizacion
 A;No Sujeto clientes No Ceuta;2023-10-31 00:00:00;2023-10-31 00:00:00
 B;No Sujeto clientes No Melilla;2023-10-31 00:00:00;2023-10-31 00:00:00
 C;Repercutido 0%;2023-10-31 00:00:00;2023-10-31 00:00:00
@@ -15,7 +15,7 @@ P;Repercutido Financiero Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
 Q;Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
 R;Reducido;2023-10-31 00:00:00;2023-10-31 00:00:00
 S;Superreducido;2023-10-31 00:00:00;2023-10-31 00:00:00
-T;ExportaciÃ³n Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
+T;Exportación Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
 U;Franqueo Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
 V;SPU Exento;2023-10-31 00:00:00;2023-10-31 00:00:00
 X;Especial 2;2023-10-31 00:00:00;2023-10-31 00:00:00

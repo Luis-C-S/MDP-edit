@@ -1,4 +1,4 @@
-﻿cod_producto_comercial;cod_modalidad;fec_alta;cod_pais;fec_baja;ind_obliga_peso;peso_min;peso_max;importe_min;importe_max;fec_creacion;fec_actualizacion
+cod_producto_comercial;cod_modalidad;fec_alta;cod_pais;fec_baja;ind_obliga_peso;peso_min;peso_max;importe_min;importe_max;fec_creacion;fec_actualizacion
 PADXA1;DOUAOF;2023-10-31 00:00:00;ESP;;t;1.000;40000.000;0.00;0.00;2023-10-31 00:00:00;2023-10-31 00:00:00
 PADXA1;DOUAOF;2023-10-31 00:00:00;AND;;t;1.000;40000.000;0.00;0.00;2023-10-31 00:00:00;2023-10-31 00:00:00
 PADXA1;DOUAOF;2023-10-31 00:00:00;PRT;;t;1.000;40000.000;0.00;0.00;2023-10-31 00:00:00;2023-10-31 00:00:00

@@ -1,4 +1,4 @@
-﻿cod_sistema;nom_sistema;fec_creacion;fec_actualizacion
+cod_sistema;nom_sistema;fec_creacion;fec_actualizacion
 NEO;Mi Oficina;2023-10-31 00:00:00;2023-10-31 00:00:00
 CMO;APP de Correos;2023-10-31 00:00:00;2023-10-31 00:00:00
 PHR;Portal de Procesos Masivos Recursos Humanos;2023-10-31 00:00:00;2023-10-31 00:00:00
@@ -7,7 +7,7 @@ MKW;Web de Correos Market;2023-10-31 00:00:00;2023-10-31 00:00:00
 CAM;Web Camino de Santiago;2023-10-31 00:00:00;2023-10-31 00:00:00
 COM;Soluciones ecommerce de Correos (Comandia);2023-10-31 00:00:00;2023-10-31 00:00:00
 CPQ;Citypaq;2023-10-31 00:00:00;2023-10-31 00:00:00
-MAU;MÃ¡quinas de Autoservico de Oficinas;2023-10-31 00:00:00;2023-10-31 00:00:00
+MAU;Máquinas de Autoservico de Oficinas;2023-10-31 00:00:00;2023-10-31 00:00:00
 SAM;Correos Sampling;2023-10-31 00:00:00;2023-10-31 00:00:00
 PRS;Prestashop;2023-10-31 00:00:00;2023-10-31 00:00:00
 WOO;Woocommerce;2023-10-31 00:00:00;2023-10-31 00:00:00
