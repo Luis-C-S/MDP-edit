@@ -1,31 +1,31 @@
-cod_modalidad;cod_idioma_alpha2;nom_modalidad;fec_creacion;fec_actualizacion
+﻿cod_modalidad;cod_idioma_alpha2;nom_modalidad;fec_creacion;fec_actualizacion
 DOUAOF;es;Entrega a domicilio;2024-02-20 00:00:00;2024-02-20 00:00:00
-DOMCIT;es;Entrega a domicilio con admisión en Citypaq;2024-02-20 00:00:00;2024-02-20 00:00:00
+DOMCIT;es;Entrega a domicilio con admisiÃ³n en Citypaq;2024-02-20 00:00:00;2024-02-20 00:00:00
 OFUAOF;es;Entrega en Oficina;2024-02-20 00:00:00;2024-02-20 00:00:00
-OFICIT;es;Entrega en Oficina con admisión en Citypaq;2024-02-20 00:00:00;2024-02-20 00:00:00
+OFICIT;es;Entrega en Oficina con admisiÃ³n en Citypaq;2024-02-20 00:00:00;2024-02-20 00:00:00
 CIUAOF;es;Entrega en Citypaq;2024-02-20 00:00:00;2024-02-20 00:00:00
-BUUAOF;es;Depósito en buzón;2024-02-20 00:00:00;2024-02-20 00:00:00
-RAUAOF;es;Recepción telemática;2024-02-20 00:00:00;2024-02-20 00:00:00
-ACUAOF;es;Recepción telemática;2024-02-20 00:00:00;2024-02-20 00:00:00
-DOURUA;es;Devolución;2024-02-20 00:00:00;2024-02-20 00:00:00
+BUUAOF;es;DepÃ³sito en buzÃ³n;2024-02-20 00:00:00;2024-02-20 00:00:00
+RAUAOF;es;RecepciÃ³n telemÃ¡tica;2024-02-20 00:00:00;2024-02-20 00:00:00
+ACUAOF;es;RecepciÃ³n telemÃ¡tica;2024-02-20 00:00:00;2024-02-20 00:00:00
+DOURUA;es;DevoluciÃ³n;2024-02-20 00:00:00;2024-02-20 00:00:00
 PCUAOF;es;Entrega a pie de calle;2024-02-20 00:00:00;2024-02-20 00:00:00
 DSUAOF;es;Entrega a domicilio sin puesta en marcha;2024-02-20 00:00:00;2024-02-20 00:00:00
 DCUAOF;es;Entrega a domicilio con puesta en marcha;2024-02-20 00:00:00;2024-02-20 00:00:00
 AUURUA;es;Ausente durante reparto;2024-02-20 00:00:00;2024-02-20 00:00:00
-PEUAOF;es;Entrega de pequeño electrodoméstico;2024-02-20 00:00:00;2024-02-20 00:00:00
+PEUAOF;es;Entrega de pequeÃ±o electrodomÃ©stico;2024-02-20 00:00:00;2024-02-20 00:00:00
 URUAOF;es;Entrega en Unidad de Reparto y/o CTA;2024-02-20 00:00:00;2024-02-20 00:00:00
 CEURUA;es;Entrega en Centro de retorno de la caja isoterma;2024-02-20 00:00:00;2024-02-20 00:00:00
 CAUAOF;es;Cambio de Correos XL;2024-02-20 00:00:00;2024-04-19 00:00:00
-ESTREG;es;Estándar regular;2024-04-19 00:00:00;2024-04-19 00:00:00
-ESTESP;es;Estándar esporádica;2024-04-19 00:00:00;2024-04-19 00:00:00
-ESPESP;es;Especial esporádica;2024-04-19 00:00:00;2024-04-19 00:00:00
+ESTREG;es;EstÃ¡ndar regular;2024-04-19 00:00:00;2024-04-19 00:00:00
+ESTESP;es;EstÃ¡ndar esporÃ¡dica;2024-04-19 00:00:00;2024-04-19 00:00:00
+ESPESP;es;Especial esporÃ¡dica;2024-04-19 00:00:00;2024-04-19 00:00:00
 CUBOFO;es;O.I.C. (abono en cuenta bancaria);2024-06-06 00:00:00;2024-06-06 00:00:00
 OFIOFO;es;Inmediato (abono en oficina);2024-06-06 00:00:00;2024-06-06 00:00:00
 DOMOFO;es;Ordinario (abono en domicilio);2024-06-06 00:00:00;2024-06-06 00:00:00
-NTAPEU;es;Notificación Administrativa de Procedimiento Especial;2024-08-30 00:00:00;2024-08-30 00:00:00
-INTESP;es;Internacional Esporádica;2024-10-17 00:00:00;2024-10-17 00:00:00
+NTAPEU;es;NotificaciÃ³n Administrativa de Procedimiento Especial;2024-08-30 00:00:00;2024-08-30 00:00:00
+INTESP;es;Internacional EsporÃ¡dica;2024-10-17 00:00:00;2024-10-17 00:00:00
 ACUESP;es;Acuerdos Especiales;2024-10-17 00:00:00;2024-10-17 00:00:00
-EXPORT;es;Exportación;2024-10-17 00:00:00;2024-10-17 00:00:00
-ENESVA;es;Envíos de escaso valor;2024-10-17 00:00:00;2024-10-17 00:00:00
+EXPORT;es;ExportaciÃ³n;2024-10-17 00:00:00;2024-10-17 00:00:00
+ENESVA;es;EnvÃ­os de escaso valor;2024-10-17 00:00:00;2024-10-17 00:00:00
 PAIMAR;es;Pago de impuestos y aranceles;2024-10-17 00:00:00;2024-10-17 00:00:00
 ORUAOF;es;Entrega en Oficina (de referencia);2025-06-30 00:00:00;2025-06-30 00:00:00

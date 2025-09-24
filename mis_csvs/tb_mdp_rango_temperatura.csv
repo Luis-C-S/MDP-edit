@@ -1,5 +1,5 @@
-cod_rango_temperatura;desc_rango_temperatura;temperatura_min;temperatura_max;fec_creacion;fec_actualizacion
-1;-20 ºC;-20.00;-15.00;2024-02-20 00:00:00;2024-02-20 00:00:00
-2;Entre 2 ºC y 8 ºC;2.00;8.00;2024-02-20 00:00:00;2024-02-20 00:00:00
-3;Entre 15 ºC y 25 ºC;15.00;25.00;2024-02-20 00:00:00;2024-02-20 00:00:00
+﻿cod_rango_temperatura;desc_rango_temperatura;temperatura_min;temperatura_max;fec_creacion;fec_actualizacion
+1;-20 ÂºC;-20.00;-15.00;2024-02-20 00:00:00;2024-02-20 00:00:00
+2;Entre 2 ÂºC y 8 ÂºC;2.00;8.00;2024-02-20 00:00:00;2024-02-20 00:00:00
+3;Entre 15 ÂºC y 25 ÂºC;15.00;25.00;2024-02-20 00:00:00;2024-02-20 00:00:00
 4;Personalizado;-15.00;25.00;2024-02-20 00:00:00;2024-02-20 00:00:00

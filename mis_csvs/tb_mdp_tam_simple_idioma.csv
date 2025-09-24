@@ -1,4 +1,4 @@
-cod_tam_simple;cod_idioma_alpha2;nom_tam_simple;desc_tam;desc_alto;desc_ancho;desc_largo;desc_peso;fec_creacion;fec_actualizacion
+﻿cod_tam_simple;cod_idioma_alpha2;nom_tam_simple;desc_tam;desc_alto;desc_ancho;desc_largo;desc_peso;fec_creacion;fec_actualizacion
 1010000010;es;XS;30 x 20 x 20;Alto;Ancho;Largo;Hasta 2 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
 1010000010;en;XS;30 x 20 x 20;Height;Width;Long;Up to 2 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
 1010000010;ca;XS;30 x 20 x 20;Alt;Ample;Llarg;Fins a 2 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
@@ -28,12 +28,12 @@ cod_tam_simple;cod_idioma_alpha2;nom_tam_simple;desc_tam;desc_alto;desc_ancho;de
 1020000030;es;M;9 x 49 x 39;Alto;Ancho;Largo;Hasta 5 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
 1020000040;es;L;19 x 49 x 39;Alto;Ancho;Largo;Hasta 10 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
 1020000050;es;XL;59 x 49 x 39;Alto;Ancho;Largo;Hasta 20 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
-1030000010;es;Pequeño;55 x 35 x 25;Alto;Ancho;Largo;Hasta 15 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
+1030000010;es;PequeÃ±o;55 x 35 x 25;Alto;Ancho;Largo;Hasta 15 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
 1030000020;es;Grande;55 x 60 x 39;Alto;Ancho;Largo;Hasta 25 kg;2023-10-31 00:00:00;2023-10-31 00:00:00
-3010000010;es;Caja pequeña alimentación;45 x 45 x 35 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
-3010000020;es;Caja mediana alimentación;45 x 45 x 43 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
-3010000030;es;Caja grande alimentación;68 x 49 x 44 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
-3020000010;es;Caja pequeña farma;36 x 36 x 37 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
+3010000010;es;Caja pequeÃ±a alimentaciÃ³n;45 x 45 x 35 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
+3010000020;es;Caja mediana alimentaciÃ³n;45 x 45 x 43 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
+3010000030;es;Caja grande alimentaciÃ³n;68 x 49 x 44 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
+3020000010;es;Caja pequeÃ±a farma;36 x 36 x 37 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
 3020000020;es;Caja mediana farma;42 x 43 x 43 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
 3020000030;es;Caja grande farma;47 x 47 x 48 cm;Alto;Ancho;Largo;Hasta 30 kg de peso real;2024-02-20 00:00:00;2024-02-20 00:00:00
 2010000010;es;Small Palet;1,2 x 0,8 x 2,2 m;Alto;Ancho;Largo;Hasta 300 kg;2024-01-19 00:00:00;2024-04-19 00:00:00

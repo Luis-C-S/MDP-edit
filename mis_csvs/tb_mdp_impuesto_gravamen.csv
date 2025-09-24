@@ -1,4 +1,4 @@
-cod_tasa_impositiva;cod_tipo_impuesto;cod_tipo_gravamen;por_gravamen;cod_sap;fec_inicio;fec_fin;fec_creacion;fec_actualizacion
+﻿cod_tasa_impositiva;cod_tipo_impuesto;cod_tipo_gravamen;por_gravamen;cod_sap;fec_inicio;fec_fin;fec_creacion;fec_actualizacion
 103;IVA;S;4.00;0400IVAN;2023-01-01 00:00:00;;2023-10-31 00:00:00;2023-10-31 00:00:00
 104;IVA;V;0.00;0000EXEU;2023-01-01 00:00:00;;2023-10-31 00:00:00;2023-10-31 00:00:00
 105;IVA;N;0.00;0000EXNS;2023-01-01 00:00:00;;2023-10-31 00:00:00;2023-10-31 00:00:00

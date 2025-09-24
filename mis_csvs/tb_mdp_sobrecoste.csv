@@ -1,10 +1,10 @@
-cod_sobrecoste;desc_sobrecoste;fec_creacion;fec_actualizacion
-1;Una de las medidas excede el máximo estándar;2023-10-31 00:00:00;2023-10-31 00:00:00
-2;La suma de ancho + largo + alto excede del criterio máximo estándar;2023-10-31 00:00:00;2023-10-31 00:00:00
-3;Dos o más dimensiones, incluido el criterio de la suma de dimensiones, exceden el máximo estándar;2023-10-31 00:00:00;2023-10-31 00:00:00
-4;Una de las medidas, largo o ancho, o ambas excede del 10% pero no del 50% de las medidas estándar;2024-01-19 00:00:00;2024-01-19 00:00:00
-5;Una de las medidas, largo o ancho, excede del 50% de las medidas estándar;2024-01-19 00:00:00;2024-01-19 00:00:00
-6;Las dos medidas, ancho y largo, exceden del 50% de las medidas estándar;2024-01-19 00:00:00;2024-01-19 00:00:00
-7;El peso excede en más de un 10% del peso estándar;2024-01-19 00:00:00;2024-01-19 00:00:00
-8;"El envío contiene un frigorífico americano o una TV de 80""";2024-01-19 00:00:00;2024-01-19 00:00:00
-9;Suplemento por recogida en sábado;2024-04-19 00:00:00;2024-04-19 00:00:00
+﻿cod_sobrecoste;desc_sobrecoste;fec_creacion;fec_actualizacion
+1;Una de las medidas excede el mÃ¡ximo estÃ¡ndar;2023-10-31 00:00:00;2023-10-31 00:00:00
+2;La suma de ancho + largo + alto excede del criterio mÃ¡ximo estÃ¡ndar;2023-10-31 00:00:00;2023-10-31 00:00:00
+3;Dos o mÃ¡s dimensiones, incluido el criterio de la suma de dimensiones, exceden el mÃ¡ximo estÃ¡ndar;2023-10-31 00:00:00;2023-10-31 00:00:00
+4;Una de las medidas, largo o ancho, o ambas excede del 10% pero no del 50% de las medidas estÃ¡ndar;2024-01-19 00:00:00;2024-01-19 00:00:00
+5;Una de las medidas, largo o ancho, excede del 50% de las medidas estÃ¡ndar;2024-01-19 00:00:00;2024-01-19 00:00:00
+6;Las dos medidas, ancho y largo, exceden del 50% de las medidas estÃ¡ndar;2024-01-19 00:00:00;2024-01-19 00:00:00
+7;El peso excede en mÃ¡s de un 10% del peso estÃ¡ndar;2024-01-19 00:00:00;2024-01-19 00:00:00
+8;"El envÃ­o contiene un frigorÃ­fico americano o una TV de 80""";2024-01-19 00:00:00;2024-01-19 00:00:00
+9;Suplemento por recogida en sÃ¡bado;2024-04-19 00:00:00;2024-04-19 00:00:00

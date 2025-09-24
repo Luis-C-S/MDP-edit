@@ -1,4 +1,4 @@
-cod_producto_comercial;cod_modalidad;fec_alta;cod_va;cod_pais;fec_baja;ind_obligatorio;cod_grp_va_obligatorio;tipo_emb;num_intentos_entrega_min;num_intentos_entrega_max;tiempo_lista_min;tiempo_lista_max;importe_min;importe_max;tiempo_custodia;ind_envio;fec_creacion;fec_actualizacion
+﻿cod_producto_comercial;cod_modalidad;fec_alta;cod_va;cod_pais;fec_baja;ind_obligatorio;cod_grp_va_obligatorio;tipo_emb;num_intentos_entrega_min;num_intentos_entrega_max;tiempo_lista_min;tiempo_lista_max;importe_min;importe_max;tiempo_custodia;ind_envio;fec_creacion;fec_actualizacion
 PAAXD1;DOUAOF;2024-04-19 00:00:00;ARNAPO;ESP;;f;;0;0;0;0;0;0.00;0.00;0;f;2024-04-19 00:00:00;2024-04-19 00:00:00
 PAAXD1;DOUAOF;2024-04-19 00:00:00;RISIPO;ESP;;f;;0;0;0;0;0;0.00;0.00;0;f;2024-04-19 00:00:00;2024-04-19 00:00:00
 PAAXD1;DOUAOF;2024-04-19 00:00:00;REDOPO;ESP;;f;;0;0;0;0;0;0.01;499.99;0;f;2024-04-19 00:00:00;2024-04-19 00:00:00

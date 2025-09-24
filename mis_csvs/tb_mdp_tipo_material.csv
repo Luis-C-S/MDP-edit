@@ -1,4 +1,4 @@
-cod_tipo_material;nom_tipo_material;fec_creacion;fec_actualizacion
+﻿cod_tipo_material;nom_tipo_material;fec_creacion;fec_actualizacion
 1;Producto;2023-10-31 00:00:00;2023-10-31 00:00:00
 2;Servicio;2023-10-31 00:00:00;2023-10-31 00:00:00
 3;Producto + Servicio;2023-10-31 00:00:00;2023-10-31 00:00:00

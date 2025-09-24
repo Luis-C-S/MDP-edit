@@ -1,4 +1,4 @@
-cod_trazabilidad_temperatura;desc_trazabilidad_temperatura;ind_datalogger;fec_creacion;fec_actualizacion
+﻿cod_trazabilidad_temperatura;desc_trazabilidad_temperatura;ind_datalogger;fec_creacion;fec_actualizacion
 1;Sin trazabilidad de temperatura;f;2024-02-20 00:00:00;2024-02-20 00:00:00
 2;Trazabilidad de temperatura Offline (uso de datalogger Offline);f;2024-02-20 00:00:00;2024-02-20 00:00:00
 3;Trazabilidad de temperatura Online (uso de datalogger Online);f;2024-02-20 00:00:00;2024-02-20 00:00:00

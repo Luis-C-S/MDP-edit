@@ -1,4 +1,4 @@
-cod_producto_comercial;cod_modalidad;fec_alta;cod_sobrecoste;importe_fijo;por_sobrecoste;fec_creacion;fec_actualizacion
+﻿cod_producto_comercial;cod_modalidad;fec_alta;cod_sobrecoste;importe_fijo;por_sobrecoste;fec_creacion;fec_actualizacion
 PADXA1;DOUAOF;2023-10-31 00:00:00;1;0.00;35.00;2023-10-31 00:00:00;2023-10-31 00:00:00
 PADXA1;DOUAOF;2023-10-31 00:00:00;2;0.00;35.00;2023-10-31 00:00:00;2023-10-31 00:00:00
 PADXA1;DOUAOF;2023-10-31 00:00:00;3;0.00;70.00;2023-10-31 00:00:00;2023-10-31 00:00:00

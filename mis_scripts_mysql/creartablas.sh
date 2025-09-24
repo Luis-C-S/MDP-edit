@@ -2,25 +2,25 @@
 #!/bin/bash
 
 
-# Si se pasan parámetros, solo procesa esos CSV (buscando el archivo correspondiente)
+# Si se pasan parÃ¡metros, solo procesa esos CSV (buscando el archivo correspondiente)
 if [ $# -gt 0 ]; then
     archivos=()
     for nombre in "$@"; do
-        # Busca el archivo CSV que corresponde a la tabla (añadiendo el prefijo y extensión)
+        # Busca el archivo CSV que corresponde a la tabla (aÃ±adiendo el prefijo y extensiÃ³n)
         archivo="/csvs/tb_mdp_${nombre}.csv"
         if [ -f "$archivo" ]; then
             archivos+=("$archivo")
         else
-            echo "No se encontró el archivo $archivo"
+            echo "No se encontrÃ³ el archivo $archivo"
         fi
     done
 else
-    # Si no se pasan parámetros, procesa todos los CSV
+    # Si no se pasan parÃ¡metros, procesa todos los CSV
     archivos=(/csvs/*.csv)
 fi
 
 for csvfile in "${archivos[@]}"; do
-    # Obtener el nombre de la tabla quitando el prefijo y la extensión
+    # Obtener el nombre de la tabla quitando el prefijo y la extensiÃ³n
     base=$(basename "$csvfile" .csv)
     tablename=${base#tb_mdp_}
 
@@ -35,7 +35,7 @@ for csvfile in "${archivos[@]}"; do
         col_clean=$(echo "$col" | tr -d '\"')
         create_sql+="\`$col_clean\` VARCHAR(255),"
     done
-    create_sql=${create_sql%,} # Quitar la última coma
+    create_sql=${create_sql%,} # Quitar la Ãºltima coma
     create_sql+=");"
 
     echo "Creando tabla $tablename..."

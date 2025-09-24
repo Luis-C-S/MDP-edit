@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Si se pasan parámetros, solo procesa esos CSV (buscando el archivo correspondiente)
+# Si se pasan parÃ¡metros, solo procesa esos CSV (buscando el archivo correspondiente)
 if [ $# -gt 0 ]; then
     archivos=()
     for nombre in "$@"; do
@@ -8,7 +8,7 @@ if [ $# -gt 0 ]; then
         if [ -f "$archivo" ]; then
             archivos+=("$archivo")
         else
-            echo "No se encontró el archivo $archivo"
+            echo "No se encontrÃ³ el archivo $archivo"
         fi
     done
 else

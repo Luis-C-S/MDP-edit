@@ -1,4 +1,4 @@
-cod_prod_prefijo;cod_producto;cod_sistema;cod_modalidad;ind_valor_declarado;ind_entrega_recogida;fec_creacion;fec_actualizacion
+﻿cod_prod_prefijo;cod_producto;cod_sistema;cod_modalidad;ind_valor_declarado;ind_entrega_recogida;fec_creacion;fec_actualizacion
 PK;PADXA;NEO;DOUAOF;f;f;2023-10-31 00:00:00;2024-04-19 00:00:00
 PK;PADXA;CMO;DOUAOF;f;f;2023-10-31 00:00:00;2024-04-19 00:00:00
 PK;PADXA;CMO;DOMCIT;f;f;2023-10-31 00:00:00;2024-04-19 00:00:00
