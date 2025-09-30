@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inspector de Campos{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4">Inspector de Campos</h1>
+
+    <div class="mb-4">
+        <label for="fieldSelect" class="form-label">Selecciona un campo:</label>
+        <select id="fieldSelect" class="form-select selectpicker" data-live-search="true" title="-- Elige un campo --">
+            {% for field in fields %}
+                <option value="{{ field }}" {% if field == selectedField %}selected{% endif %}>{{ field }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    {% if selectedField %}
+        <h2 class="h5">Tablas que contienen el campo <code>{{ selectedField }}</code>:</h2>
+
+        {% if tables is not empty %}
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Base de datos</th>
+                        <th scope="col">Tabla</th>
+                        <th scope="col">Columna</th>
+                        <th scope="col">Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for table in tables %}
+                        <tr>
+                            <td>{{ table.TABLE_SCHEMA }}</td>
+                            <td>{{ table.TABLE_NAME }}</td>
+                            <td>{{ table.COLUMN_NAME }}</td>
+                            <td>{{ table.DATA_TYPE }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-warning mt-3">
+                No se encontraron tablas que contengan el campo <strong>{{ selectedField }}</strong>.
+            </div>
+        {% endif %}
+    {% endif %}
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#fieldSelect').selectpicker({
+            liveSearch: true,
+            liveSearchStyle: 'contains',
+            noneSelectedText: '-- Elige un campo --'
+        });
+
+        // Al cambiar la selección, recargamos la página con el campo seleccionado
+        $('#fieldSelect').on('changed.bs.select', function () {
+            const campo = $(this).val();
+            if (campo) {
+                window.location.href = '?field=' + campo;
+            }
+        });
+    });
+</script>
+{% endblock %}
