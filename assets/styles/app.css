@@ -1,12 +1,12 @@
+/* Sobrescribir algún color general */
 body {
-    background-color: #ec3737;
+    background-color: #f8f9fa; /* gris claro de Bootstrap */
 }
 
-h1 {
-    color: #2c3e50;
-    font-family: Arial, sans-serif;
-}
-
-p {
-    font-size: 16px;
+/* Personalización */
+.my-custom-header {
+    background-color: #df8c10;
+    color: white;
+    padding: 1rem;
+    border-radius: .5rem;
 }
