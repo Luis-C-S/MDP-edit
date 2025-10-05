@@ -1,11 +1,9 @@
-import React from 'react';
+// assets/App.jsx
+import React from "react";
+import FieldInspector from "./FieldInspector";
 
 const App = () => {
-    return (
-        <div class="my-custom-header">
-            Hola desde mi encabezado rojo 🔴
-        </div>
-    );
+  return <FieldInspector />;
 };
 
 export default App;
