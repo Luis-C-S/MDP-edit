@@ -35,3 +35,4 @@ Hacer Functions:
 
 Crear entidades para Doctrine con este script (dentro del contenedor de la app):
     php tools/generate_entities.php
+
