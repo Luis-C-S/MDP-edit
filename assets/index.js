@@ -1,7 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './styles/app.css';
+// assets/index.js
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Asegurarse de que el div root existe
+let container = document.getElementById("root");
+const root = createRoot(container);
 root.render(<App />);
