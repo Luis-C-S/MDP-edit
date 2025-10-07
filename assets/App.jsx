@@ -1,9 +1,20 @@
-// assets/App.jsx
-import React from "react";
-import FieldInspector from "./FieldInspector";
+import { Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import FieldInspector from './components/FieldInspector';
+// Aquí irás agregando más componentes
 
 const App = () => {
-  return <FieldInspector />;
+  return (
+    <div style={{ display: 'flex' }}>
+      <Sidebar />
+      <div style={{ flex: 1, padding: '1rem' }}>
+        <Routes>
+          <Route path="/field-inspector" element={<FieldInspector />} />
+          {/* Más rutas conforme crezca tu app */}
+        </Routes>
+      </div>
+    </div>
+  );
 };
 
 export default App;
