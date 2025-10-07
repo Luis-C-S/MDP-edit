@@ -29,7 +29,11 @@ class FieldInspectorController extends AbstractController
             ->executeQuery()
             ->fetchFirstColumn();
 
-        return new JsonResponse($fields);
+        // Eliminar duplicados y ordenar alfabéticamente
+        $uniqueSortedFields = array_unique($fields);
+        sort($uniqueSortedFields, SORT_NATURAL | SORT_FLAG_CASE);
+
+        return new JsonResponse($uniqueSortedFields);
     }
 
     // Devuelve todas las tablas en las que está presente un campo

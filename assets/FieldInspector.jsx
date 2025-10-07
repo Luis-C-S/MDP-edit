@@ -1,28 +1,34 @@
-// assets/FieldInspector.jsx
 import React, { useEffect, useState } from "react";
+import Select from "react-select";
 
 const FieldInspector = () => {
   const [fields, setFields] = useState([]);
-  const [selectedField, setSelectedField] = useState("");
+  const [selectedField, setSelectedField] = useState(null);
   const [tables, setTables] = useState([]);
 
-  // Debug: para ver si el componente se monta varias veces
   useEffect(() => {
     console.log("FieldInspector montado");
   }, []);
 
-  // Cargar los campos al montar el componente
   useEffect(() => {
     fetch("/api/fields")
       .then((res) => res.json())
-      .then((data) => setFields(data))
+      .then((data) => {
+        const uniqueSortedFields = Array.from(new Set(data)).sort((a, b) =>
+          a.localeCompare(b)
+        );
+        const options = uniqueSortedFields.map((field) => ({
+          value: field,
+          label: field,
+        }));
+        setFields(options);
+      })
       .catch((err) => console.error("Error cargando campos:", err));
   }, []);
 
-  // Cargar las tablas cuando cambia el campo seleccionado
   useEffect(() => {
     if (selectedField) {
-      fetch(`/api/tables/${selectedField}`)
+      fetch(`/api/tables/${selectedField.value}`)
         .then((res) => res.json())
         .then((data) => setTables(data))
         .catch((err) => console.error("Error cargando tablas:", err));
@@ -35,24 +41,24 @@ const FieldInspector = () => {
     <div className="container mt-4">
       <h1>Inspector de Campos</h1>
 
-      {/* Evitar que un form padre haga submit */}
       <div className="mb-3">
         <label htmlFor="field-select" className="form-label">
           Selecciona un campo:
         </label>
-        <select
+        <Select
           id="field-select"
-          className="form-select"
+          options={fields}
           value={selectedField}
-          onChange={(e) => setSelectedField(e.target.value)}
-        >
-          <option value="">-- Selecciona un campo --</option>
-          {fields.map((field) => (
-            <option key={field} value={field}>
-              {field}
-            </option>
-          ))}
-        </select>
+          onChange={setSelectedField}
+          placeholder="Escribe para buscar un campo..."
+          isClearable
+          closeMenuOnSelect={true}
+          blurInputOnSelect={true}
+          filterOption={(option, inputValue) => {
+            if (!inputValue) return true;
+            return option.label.toLowerCase().includes(inputValue.toLowerCase());
+          }}
+        />
       </div>
 
       <h3>Tablas que contienen el campo:</h3>
