@@ -15,3 +15,5 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+### instalación en el contenedor de node v20 ###
+node-v20.19.0-linux-x64/

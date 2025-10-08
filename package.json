@@ -16,10 +16,13 @@
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "build": "encore production --progress"
+        "build": "encore production --progress",
+        "watch:poll": "encore dev --watch --watch-options-poll=1000"
     },
     "dependencies": {
         "react": "^19.1.1",
-        "react-dom": "^19.1.1"
+        "react-dom": "^19.1.1",
+        "react-router-dom": "^7.9.3",
+        "react-select": "^5.10.2"
     }
 }
