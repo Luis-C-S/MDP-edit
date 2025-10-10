@@ -1,33 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-theme-quartz.css";
-import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';    
-ModuleRegistry.registerModules([ AllCommunityModule ]);
+import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
+
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 const PasteTable = () => {
-  // Datos de ejemplo
-  const [rowData] = useState([
-    { make: "Tesla", model: "Model Y", price: 64950 },
-    { make: "Ford", model: "F-Series", price: 33850 },
-    { make: "Toyota", model: "Corolla", price: 29600 },
-  ]);
+  const [rowData, setRowData] = useState([]);
+  const [colDefs, setColDefs] = useState([]);
 
-  // Columnas de la tabla
-  const [colDefs] = useState([
-    { field: "make" },
-    { field: "model" },
-    { field: "price" },
-  ]);
+  useEffect(() => {
+    const tableName = "producto_idioma"; // 👈 tabla fija para pruebas
+
+    fetch(`http://localhost:8080/tabla/${tableName}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setRowData(data);
+
+        if (data.length > 0) {
+          const dynamicCols = Object.keys(data[0]).map((key) => ({
+            field: key,
+            sortable: true,
+            filter: true,
+            resizable: true,
+          }));
+          setColDefs(dynamicCols);
+        }
+      })
+      .catch((err) => console.error("Error cargando tabla:", err));
+  }, []);
 
   return (
     <div
-      className="ag-theme-quartz"  // 👈 Tema Quartz aplicado aquí
-      style={{ height: 400, width: "100%" }}
+      className="ag-theme-quartz"
+      style={{ height: 500, width: "100%", marginTop: 20 }}
     >
       <AgGridReact
         rowData={rowData}
         columnDefs={colDefs}
-        defaultColDef={{ sortable: true, filter: true }} // Opcional: ordenar y filtrar
+        defaultColDef={{ resizable: true }}
       />
     </div>
   );
