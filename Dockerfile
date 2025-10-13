@@ -14,8 +14,5 @@ RUN bash -c "source $NVM_DIR/nvm.sh && nvm install 20 && nvm use 20 && nvm alias
 ENV NODE_PATH=$NVM_DIR/versions/node/v20.*/lib/node_modules
 ENV PATH=$NVM_DIR/versions/node/v20.*/bin:$PATH
 
-# Instalar Yarn globalmente
-RUN npm install -g yarn
-
 # Verificar versiones
-RUN bash -c "source $NVM_DIR/nvm.sh && node -v && npm -v && yarn -v"
+RUN bash -c "source $NVM_DIR/nvm.sh && node -v && npm -v"
