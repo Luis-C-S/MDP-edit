@@ -17,53 +17,30 @@ class EntityController extends AbstractController
     {
         $this->conn = $conn;
         $this->schema = 'mdp_products';
-
         // Forzar search_path para toda la sesión
-        $this->conn->executeQuery("SET search_path TO {$this->schema},public");
+        $this->conn->executeQuery('SET search_path TO mdp_products,public');
     }
 
     /**
-     * Comprueba si un valor es JSON
-     */
-    private function isJson($string): bool
-    {
-        if (!is_string($string)) return false;
-        json_decode($string);
-        return (json_last_error() === JSON_ERROR_NONE);
-    }
-
-    /**
-     * Normaliza valores especiales de PostgreSQL a PHP
-     */
-    private function normalizeRow(array $row): array
-    {
-        foreach ($row as $col => &$val) {
-            if (is_string($val)) {
-                // JSON o JSONB
-                if ($this->isJson($val)) {
-                    $val = json_decode($val, true);
-                }
-                // Arrays de PostgreSQL {a,b,c}
-                elseif (str_starts_with($val, '{') && str_ends_with($val, '}')) {
-                    $val = explode(',', trim($val, '{}'));
-                }
-            }
-        }
-        return $row;
-    }
-
-    /**
-     * Obtiene todos los registros de una tabla (GET)
+     * Devuelve todas las filas de una tabla, ignorando tipos no soportados
      */
     #[Route('/tabla/{tableName}', name: 'api_table_get', methods: ['GET'])]
     public function getTableData(string $tableName): JsonResponse
     {
         try {
+            $tableName = trim($tableName, '"'); // quitar comillas dobles si hay
             $fullTableName = "{$this->schema}.\"$tableName\"";
+
             $rows = $this->conn->fetchAllAssociative("SELECT * FROM $fullTableName");
 
-            // Normalizamos cada fila
-            $rows = array_map([$this, 'normalizeRow'], $rows);
+            // Convertir tipos no soportados a string fijo
+            foreach ($rows as &$row) {
+                foreach ($row as $col => $value) {
+                    if (is_resource($value) || is_object($value)) {
+                        $row[$col] = "tipo no compatible";
+                    }
+                }
+            }
 
             return $this->json($rows);
         } catch (\Exception $e) {
@@ -74,7 +51,7 @@ class EntityController extends AbstractController
     }
 
     /**
-     * Actualiza o inserta registros (POST)
+     * Actualiza o inserta registros
      */
     #[Route('/tabla/{tableName}', name: 'api_table_post', methods: ['POST'])]
     public function updateTableData(string $tableName, Request $request): JsonResponse
@@ -89,6 +66,7 @@ class EntityController extends AbstractController
         $row = $data['row'];
 
         try {
+            $tableName = trim($tableName, '"');
             $fullTableName = "{$this->schema}.\"$tableName\"";
 
             if ($action === 'update') {
@@ -117,10 +95,8 @@ class EntityController extends AbstractController
 
             return $this->json(['ok' => true]);
         } catch (\Exception $e) {
-            return $this->json([
-                'ok' => false,
-                'error' => 'Error al actualizar/insertar: ' . $e->getMessage()
-            ], 500);
+            return $this->json(['ok' => false, 'error' => $e->getMessage()], 500);
         }
     }
 }
+

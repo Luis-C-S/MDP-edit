@@ -49,7 +49,7 @@ const FieldInspector = () => {
   useEffect(() => {
     if (!selectedTable) return;
 
-    fetch(`http://localhost:8080/tabla/${selectedTable}`)
+    fetch(`/tabla/${selectedTable}`)
       .then((res) => res.json())
       .then((data) => {
         setRowData(data);
@@ -70,7 +70,7 @@ const FieldInspector = () => {
   }, [selectedTable]);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4" style={{ position: "relative", zIndex: 1 }}>
       <h1>Inspector de Campos</h1>
 
       <div className="mb-3">
@@ -89,6 +89,10 @@ const FieldInspector = () => {
           filterOption={(option, inputValue) =>
             option.label.toLowerCase().includes(inputValue.toLowerCase())
           }
+          menuPortalTarget={document.body} // asegura que el dropdown se renderice en body
+          styles={{
+            menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+          }}
         />
       </div>
 
@@ -97,9 +101,7 @@ const FieldInspector = () => {
         {tables.map((table) => (
           <li
             key={table}
-            className={`list-group-item ${
-              selectedTable === table ? "active" : ""
-            }`}
+            className={`list-group-item ${selectedTable === table ? "active" : ""}`}
             style={{ cursor: "pointer" }}
             onClick={() => setSelectedTable(table)}
           >

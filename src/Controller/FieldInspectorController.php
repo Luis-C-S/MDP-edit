@@ -1,5 +1,4 @@
 <?php
-
 // src/Controller/FieldInspectorController.php
 namespace App\Controller;
 
@@ -16,12 +15,10 @@ class FieldInspectorController extends AbstractController
     public function __construct(Connection $connection)
     {
         $this->connection = $connection;
-        $this->schema = 'mdp_products'; // el esquema que quieres usar
-        // Forzar search_path para esta conexión
+        $this->schema = 'mdp_products';
         $this->connection->executeQuery('SET search_path TO mdp_products,public');
     }
 
-    // Devuelve todos los campos del esquema
     #[Route('/api/fields', name: 'api_fields', methods: ['GET'])]
     public function getFields(): JsonResponse
     {
@@ -33,14 +30,12 @@ class FieldInspectorController extends AbstractController
             ->executeQuery()
             ->fetchFirstColumn();
 
-        // Eliminar duplicados y ordenar alfabéticamente
         $uniqueSortedFields = array_unique($fields);
         sort($uniqueSortedFields, SORT_NATURAL | SORT_FLAG_CASE);
 
         return new JsonResponse($uniqueSortedFields);
     }
 
-    // Devuelve todas las tablas donde aparece un campo
     #[Route('/api/tables/{field}', name: 'api_tables', methods: ['GET'])]
     public function getTables(string $field): JsonResponse
     {
@@ -55,5 +50,28 @@ class FieldInspectorController extends AbstractController
             ->fetchFirstColumn();
 
         return new JsonResponse($tables);
+    }
+
+    #[Route('/api/table/{tableName}', name: 'api_table_data', methods: ['GET'])]
+    public function getTableData(string $tableName): JsonResponse
+    {
+        try {
+            $fullTableName = "{$this->schema}.\"$tableName\"";
+            $rows = $this->connection->fetchAllAssociative("SELECT * FROM $fullTableName");
+
+            foreach ($rows as &$row) {
+                foreach ($row as $col => $value) {
+                    if (is_resource($value) || is_object($value)) {
+                        $row[$col] = 'tipo no compatible';
+                    }
+                }
+            }
+
+            return new JsonResponse($rows);
+        } catch (\Exception $e) {
+            return new JsonResponse([
+                'error' => 'Error al obtener los datos: ' . $e->getMessage()
+            ], 500);
+        }
     }
 }
