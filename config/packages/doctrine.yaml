@@ -4,6 +4,9 @@ doctrine:
         server_version: '16'
         profiling_collect_backtrace: '%kernel.debug%'
         use_savepoints: true
+        # <--- Agrega esto:
+        options:
+            search_path: 'mdp_products,public'
     orm:
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true
@@ -22,3 +25,4 @@ doctrine:
                 alias: App
         controller_resolver:
             auto_mapping: false
+

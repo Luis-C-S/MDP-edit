@@ -10,36 +10,78 @@ use Doctrine\DBAL\Connection;
 
 class EntityController extends AbstractController
 {
+    private Connection $conn;
+    private string $schema;
+
+    public function __construct(Connection $conn)
+    {
+        $this->conn = $conn;
+        $this->schema = 'mdp_products';
+
+        // Forzar search_path para toda la sesión
+        $this->conn->executeQuery("SET search_path TO {$this->schema},public");
+    }
+
     /**
-     * ✅ Obtiene todos los registros de una tabla (GET)
+     * Comprueba si un valor es JSON
+     */
+    private function isJson($string): bool
+    {
+        if (!is_string($string)) return false;
+        json_decode($string);
+        return (json_last_error() === JSON_ERROR_NONE);
+    }
+
+    /**
+     * Normaliza valores especiales de PostgreSQL a PHP
+     */
+    private function normalizeRow(array $row): array
+    {
+        foreach ($row as $col => &$val) {
+            if (is_string($val)) {
+                // JSON o JSONB
+                if ($this->isJson($val)) {
+                    $val = json_decode($val, true);
+                }
+                // Arrays de PostgreSQL {a,b,c}
+                elseif (str_starts_with($val, '{') && str_ends_with($val, '}')) {
+                    $val = explode(',', trim($val, '{}'));
+                }
+            }
+        }
+        return $row;
+    }
+
+    /**
+     * Obtiene todos los registros de una tabla (GET)
      */
     #[Route('/tabla/{tableName}', name: 'api_table_get', methods: ['GET'])]
-    public function getTableData(string $tableName, Connection $conn): JsonResponse
+    public function getTableData(string $tableName): JsonResponse
     {
         try {
-            // Consulta todos los registros de la tabla indicada
-            $rows = $conn->fetchAllAssociative("SELECT * FROM `$tableName`");
+            $fullTableName = "{$this->schema}.\"$tableName\"";
+            $rows = $this->conn->fetchAllAssociative("SELECT * FROM $fullTableName");
+
+            // Normalizamos cada fila
+            $rows = array_map([$this, 'normalizeRow'], $rows);
+
             return $this->json($rows);
         } catch (\Exception $e) {
-            return $this->json(['error' => 'Error al obtener los datos: ' . $e->getMessage()], 500);
+            return $this->json([
+                'error' => 'Error al obtener los datos: ' . $e->getMessage()
+            ], 500);
         }
     }
 
     /**
-     * ✅ Actualiza o inserta registros (POST)
-     * 
-     * Recibe un JSON desde el front con esta forma:
-     * {
-     *   "action": "update",  // o "insert"
-     *   "row": { "id": 1, "campo1": "valor", ... }
-     * }
+     * Actualiza o inserta registros (POST)
      */
     #[Route('/tabla/{tableName}', name: 'api_table_post', methods: ['POST'])]
-    public function updateTableData(string $tableName, Connection $conn, Request $request): JsonResponse
+    public function updateTableData(string $tableName, Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
 
-        if (!$data || !isset($data['action']) || !isset($data['row'])) {
+        if (!$data || !isset($data['action'], $data['row'])) {
             return $this->json(['ok' => false, 'error' => 'Petición malformada'], 400);
         }
 
@@ -47,8 +89,9 @@ class EntityController extends AbstractController
         $row = $data['row'];
 
         try {
+            $fullTableName = "{$this->schema}.\"$tableName\"";
+
             if ($action === 'update') {
-                // Verifica que haya una columna 'id' para poder actualizar
                 if (!isset($row['id'])) {
                     return $this->json(['ok' => false, 'error' => 'Falta ID'], 400);
                 }
@@ -56,27 +99,28 @@ class EntityController extends AbstractController
                 $id = $row['id'];
                 unset($row['id']);
 
-                // Generar SQL dinámico de UPDATE
-                $sets = implode(', ', array_map(fn($col) => "`$col` = :$col", array_keys($row)));
-                $sql = "UPDATE `$tableName` SET $sets WHERE id = :id";
+                $sets = implode(', ', array_map(fn($col) => "\"$col\" = :$col", array_keys($row)));
+                $sql = "UPDATE $fullTableName SET $sets WHERE id = :id";
 
-                $stmt = $conn->prepare($sql);
+                $stmt = $this->conn->prepare($sql);
                 $stmt->executeStatement([...$row, 'id' => $id]);
             }
 
             if ($action === 'insert') {
-                // Generar SQL dinámico de INSERT
-                $cols = implode(', ', array_map(fn($col) => "`$col`", array_keys($row)));
+                $cols = implode(', ', array_map(fn($col) => "\"$col\"", array_keys($row)));
                 $placeholders = implode(', ', array_map(fn($col) => ":$col", array_keys($row)));
-                $sql = "INSERT INTO `$tableName` ($cols) VALUES ($placeholders)";
+                $sql = "INSERT INTO $fullTableName ($cols) VALUES ($placeholders)";
 
-                $stmt = $conn->prepare($sql);
+                $stmt = $this->conn->prepare($sql);
                 $stmt->executeStatement($row);
             }
 
             return $this->json(['ok' => true]);
         } catch (\Exception $e) {
-            return $this->json(['ok' => false, 'error' => $e->getMessage()], 500);
+            return $this->json([
+                'ok' => false,
+                'error' => 'Error al actualizar/insertar: ' . $e->getMessage()
+            ], 500);
         }
     }
 }

@@ -11,21 +11,25 @@ use Doctrine\DBAL\Connection;
 class FieldInspectorController extends AbstractController
 {
     private Connection $connection;
+    private string $schema;
 
     public function __construct(Connection $connection)
     {
         $this->connection = $connection;
+        $this->schema = 'mdp_products'; // el esquema que quieres usar
+        // Forzar search_path para esta conexión
+        $this->connection->executeQuery('SET search_path TO mdp_products,public');
     }
 
-    // Devuelve todos los campos de la base de datos 'app'
+    // Devuelve todos los campos del esquema
     #[Route('/api/fields', name: 'api_fields', methods: ['GET'])]
     public function getFields(): JsonResponse
     {
         $fields = $this->connection->createQueryBuilder()
             ->select('COLUMN_NAME')
             ->from('INFORMATION_SCHEMA.COLUMNS')
-            ->where('TABLE_SCHEMA = :db')
-            ->setParameter('db', 'app') // nombre de tu base de datos
+            ->where('TABLE_SCHEMA = :schema')
+            ->setParameter('schema', $this->schema)
             ->executeQuery()
             ->fetchFirstColumn();
 
@@ -36,16 +40,16 @@ class FieldInspectorController extends AbstractController
         return new JsonResponse($uniqueSortedFields);
     }
 
-    // Devuelve todas las tablas en las que está presente un campo
+    // Devuelve todas las tablas donde aparece un campo
     #[Route('/api/tables/{field}', name: 'api_tables', methods: ['GET'])]
     public function getTables(string $field): JsonResponse
     {
         $tables = $this->connection->createQueryBuilder()
             ->select('TABLE_NAME')
             ->from('INFORMATION_SCHEMA.COLUMNS')
-            ->where('TABLE_SCHEMA = :db')
+            ->where('TABLE_SCHEMA = :schema')
             ->andWhere('COLUMN_NAME = :field')
-            ->setParameter('db', 'app')
+            ->setParameter('schema', $this->schema)
             ->setParameter('field', $field)
             ->executeQuery()
             ->fetchFirstColumn();

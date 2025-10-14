@@ -11,7 +11,7 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: "postgresql://app:app@postgres:5432/app?serverVersion=16&charset=utf8"
+      DATABASE_URL: "pgsql://app:app@postgres:5432/app?serverVersion=16&options=-csearch_path=mdp_products,public"
       MAILER_DSN: "smtp://localhost:25"
 
   # 🐘 PostgreSQL (base de datos principal)
