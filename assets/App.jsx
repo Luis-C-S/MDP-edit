@@ -1,20 +1,14 @@
-import { Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import FieldInspector from "./components/FieldInspector";
-import PasteTable from "./components/PasteTable";
+import { Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import FieldInspector from './components/FieldInspector';
+import PasteTable from './components/PasteTable';
+// Aquí irás agregando más componentes
 
 const App = () => {
   return (
-    <div style={{ display: "flex", height: "100vh", position: "relative" }}>
+    <div style={{ display: 'flex' }}>
       <Sidebar />
-      <div
-        style={{
-          flex: 1,
-          padding: "1rem",
-          overflow: "auto",
-          position: "relative",
-        }}
-      >
+      <div style={{ flex: 1, padding: '1rem' }}>
         <Routes>
           <Route path="/field-inspector" element={<FieldInspector />} />
           <Route path="/paste-table" element={<PasteTable />} />

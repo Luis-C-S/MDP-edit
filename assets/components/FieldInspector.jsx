@@ -49,7 +49,7 @@ const FieldInspector = () => {
   useEffect(() => {
     if (!selectedTable) return;
 
-    fetch(`/tabla/${selectedTable}`)
+    fetch(`http://localhost:8080/tabla/${selectedTable}`)
       .then((res) => res.json())
       .then((data) => {
         setRowData(data);
@@ -70,10 +70,10 @@ const FieldInspector = () => {
   }, [selectedTable]);
 
   return (
-    <div className="container mt-4" style={{ position: "relative", zIndex: 1 }}>
+    <div className="container mt-4">
       <h1>Inspector de Campos</h1>
 
-      <div className="mb-3">
+      <div className="mb-3" style={{ position: 'relative', zIndex: 9999 }}>
         <label htmlFor="field-select" className="form-label">
           Selecciona un campo:
         </label>
@@ -89,19 +89,17 @@ const FieldInspector = () => {
           filterOption={(option, inputValue) =>
             option.label.toLowerCase().includes(inputValue.toLowerCase())
           }
-          menuPortalTarget={document.body} // asegura que el dropdown se renderice en body
-          styles={{
-            menuPortal: (base) => ({ ...base, zIndex: 9999 }),
-          }}
         />
       </div>
+
 
       <h3>Tablas que contienen el campo:</h3>
       <ul className="list-group mb-4">
         {tables.map((table) => (
           <li
             key={table}
-            className={`list-group-item ${selectedTable === table ? "active" : ""}`}
+            className={`list-group-item ${selectedTable === table ? "active" : ""
+              }`}
             style={{ cursor: "pointer" }}
             onClick={() => setSelectedTable(table)}
           >

@@ -9,6 +9,7 @@ const PasteTable = ({ tableName }) => {
   const [rowData, setRowData] = useState([]);
   const [colDefs, setColDefs] = useState([]);
 
+  // 🔹 Cargar datos desde el backend
   useEffect(() => {
     if (!tableName) return;
 
@@ -23,7 +24,7 @@ const PasteTable = ({ tableName }) => {
             sortable: true,
             filter: true,
             resizable: true,
-            editable: true,
+            editable: true, // 👈 habilitar edición en todas las columnas
           }));
           setColDefs(dynamicCols);
         }
@@ -31,6 +32,7 @@ const PasteTable = ({ tableName }) => {
       .catch((err) => console.error("Error cargando tabla:", err));
   }, [tableName]);
 
+  // 🔹 Cuando se edita una celda, enviar el cambio al backend
   const onCellEditRequest = useCallback(
     async (event) => {
       const updatedRow = { ...event.data, [event.colDef.field]: event.newValue };
@@ -57,19 +59,19 @@ const PasteTable = ({ tableName }) => {
   );
 
   return (
-    <div style={{ height: "500px", width: "100%", overflow: "auto", position: "relative", zIndex: 1 }}>
-      <div className="ag-theme-quartz" style={{ minHeight: "100%", width: "100%" }}>
-        <AgGridReact
-          rowData={rowData}
-          columnDefs={colDefs}
-          defaultColDef={{ resizable: true }}
-          editType="fullRow"
-          stopEditingWhenCellsLoseFocus={true}
-          onCellEditRequest={onCellEditRequest}
-        />
-      </div>
+    <div className="ag-theme-quartz" style={{ height: 500, width: "100%" }}>
+      <AgGridReact
+        rowData={rowData}
+        columnDefs={colDefs}
+        defaultColDef={{ resizable: true }}
+        editType="fullRow"
+        readOnlyEdit={false}
+        stopEditingWhenCellsLoseFocus={true}
+        onCellEditRequest={onCellEditRequest} // 👈 manejador para edición
+      />
     </div>
   );
 };
 
 export default PasteTable;
+
