@@ -24,7 +24,7 @@ const PasteTable = ({ tableName }) => {
             sortable: true,
             filter: true,
             resizable: true,
-            editable: true, // 👈 habilitar edición en todas las columnas
+            editable: true,
           }));
           setColDefs(dynamicCols);
         }
@@ -32,42 +32,44 @@ const PasteTable = ({ tableName }) => {
       .catch((err) => console.error("Error cargando tabla:", err));
   }, [tableName]);
 
-  // 🔹 Cuando se edita una celda, enviar el cambio al backend
-  const onCellEditRequest = useCallback(
-    async (event) => {
-      const updatedRow = { ...event.data, [event.colDef.field]: event.newValue };
 
-      try {
-        const response = await fetch(`http://localhost:8080/tabla/${tableName}`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ action: "update", row: updatedRow }),
-        });
+  const onInsertone = useCallback(() => {
+    const selectedNodes = gridRef.current.api.getSelectedNodes();
+    if (selectedNodes.length === 0) {
+      alert("Selecciona una fila para duplicar.");
+      return;
+    }
 
-        const result = await response.json();
-        if (!result.ok) {
-          console.error("Error actualizando:", result.error);
-          alert("❌ Error al actualizar el registro.");
-        } else {
-          console.log("✅ Actualizado correctamente:", updatedRow);
-        }
-      } catch (err) {
-        console.error("Error al guardar:", err);
-      }
-    },
-    [tableName]
-  );
+    const selectedData = selectedNodes[0].data;
+
+    // Crear una copia de la fila seleccionada
+    const newRow = {
+      ...selectedData,
+      id: Date.now(), // Asegúrate de que el campo 'id' sea único
+    };
+
+    setRowData((prevData) => [...prevData, newRow]);
+  }, []);
+
+
+  const getRowID = useCallback(params => {
+    console.log(params);
+    return params.data.id;
+  });
+
 
   return (
     <div className="ag-theme-quartz" style={{ height: 500, width: "100%" }}>
+      <div style={{ marginBottom: "1rem", display: "flex", gap: "1rem" }}>
+        <button onClick={onInsertone}>Insertar Fila</button>
+        <button onClick={onDeleteone}>Eliminar Fila</button>
+      </div>
       <AgGridReact
+        getRowID={getRowID}
         rowData={rowData}
+        animateRows={true}
+        rowSelection={multiple}
         columnDefs={colDefs}
-        defaultColDef={{ resizable: true }}
-        editType="fullRow"
-        readOnlyEdit={false}
-        stopEditingWhenCellsLoseFocus={true}
-        onCellEditRequest={onCellEditRequest} // 👈 manejador para edición
       />
     </div>
   );

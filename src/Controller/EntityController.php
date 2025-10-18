@@ -34,13 +34,13 @@ class EntityController extends AbstractController
             $rows = $this->conn->fetchAllAssociative("SELECT * FROM $fullTableName");
 
             // Convertir tipos no soportados a string fijo
-            foreach ($rows as &$row) {
-                foreach ($row as $col => $value) {
-                    if (is_resource($value) || is_object($value)) {
-                        $row[$col] = "tipo no compatible";
-                    }
+
+            array_walk_recursive($rows, function (&$value) {
+                if (is_resource($value) || is_object($value)) {
+                    $value = "tipo no compatible";
                 }
-            }
+            });
+
 
             return $this->json($rows);
         } catch (\Exception $e) {
@@ -99,4 +99,3 @@ class EntityController extends AbstractController
         }
     }
 }
-
