@@ -1,3 +1,6 @@
+// assets/components/javascript/loadTables.js
+// Carga las tablas asociadas a un campo seleccionado, ordenadas según fieldOrder
+
 import { useState, useEffect } from "react";
 import fieldOrder from "./fieldOrder";
 
