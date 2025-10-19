@@ -11,6 +11,8 @@ import loadFields from "./javascript/loadFields";
 import loadTables from "./javascript/loadTables";
 import loadTabledata from "./javascript/loadTabledata";
 import useCopyRows from "./javascript/copyRows";
+import { RowStatus } from "./javascript/constants";
+// Registro de módulos de AG Grid
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 // Componente principal
@@ -19,7 +21,7 @@ const FieldInspector = () => {
   const [selectedField, setSelectedField] = useState(null);
   const { tables, loading, error } = loadTables(selectedField);
   const [selectedTable, setSelectedTable] = useState(null);
-  const {rowData, setRowData, colDefs} = loadTabledata(selectedTable);
+  const { rowData, setRowData, colDefs } = loadTabledata(selectedTable);
   const onInsertOne = useCopyRows(setRowData);
   const [selectedRows, setSelectedRows] = useState([]);
   const getRowId = useCallback(params => {
@@ -86,10 +88,36 @@ const FieldInspector = () => {
             <AgGridReact
               getRowId={getRowId}
               rowData={rowData}
-              rowSelection= "multiple"
+              rowSelection="multiple"
+              getRowStyle={(params) => {
+                if (params.data?._rowStatus === RowStatus.NEW) {
+                  return { backgroundColor: "#d4f8d4" }; // verde claro
+                }
+                if (params.data?._rowStatus === RowStatus.MODIFIED) {
+                  return { backgroundColor: "#ffe4b3" }; // naranja claro
+                }
+                return null;
+              }}
               columnDefs={colDefs}
-              defaultColDef={{ resizable: true }}
+              defaultColDef={{
+                resizable: true,
+                editable: true,
+              }}
               onSelectionChanged={(e) => setSelectedRows(e.api.getSelectedRows())}
+              onCellValueChanged={(params) => {
+                const { data, oldValue, newValue } = params;
+
+                // Si el valor realmente cambió
+                if (oldValue !== newValue) {
+                  // Solo marcamos como MODIFIED si no es NEW
+                  if (data._rowStatus !== RowStatus.NEW) {
+                    data._rowStatus = RowStatus.MODIFIED;
+                  }
+
+                  // Refrescamos visualmente la fila
+                  params.api.applyTransaction({ update: [data] });
+                }
+              }}
             />
           </div>
         </>

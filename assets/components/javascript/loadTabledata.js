@@ -2,6 +2,7 @@
 // Carga contenido de la tabla seleccionada
 
 import { useState, useEffect } from "react";
+import { RowStatus } from "./constants";
 
 export default function loadTabledata(selectedTable) {
     const [rowData, setRowData] = useState([]);
@@ -13,9 +14,11 @@ export default function loadTabledata(selectedTable) {
             .then((res) => res.json())
             .then((data) => {
                 // Añadimos un id único a cada fila al cargar
+                // y un estado inicial (ORIGINAL) para el seguimiento de cambios
                 const withIds = data.map((row, index) => ({
                     id: index + 1, 
                     ...row,
+                    _rowStatus: RowStatus.ORIGINAL,                    
                 }));
 
                 setRowData(withIds);

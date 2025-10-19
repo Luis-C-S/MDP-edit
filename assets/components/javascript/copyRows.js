@@ -1,7 +1,6 @@
-// assets/components/javascript/copyRows.js  
-// Hook personalizado para copiar filas seleccionadas en una tabla
-
+// assets/components/javascript/copyRows.js
 import { useCallback } from "react";
+import { RowStatus } from "./constants";
 
 export default function useCopyRows(setRowData) {
   return useCallback((rowsToCopy) => {
@@ -10,16 +9,34 @@ export default function useCopyRows(setRowData) {
       return;
     }
 
-    setRowData(prev => {
-      const maxId = prev.length > 0 ? Math.max(...prev.map(r => r.id)) : 0;
-      const newRows = rowsToCopy.map((row, i) => ({
-        ...row,
-        id: maxId + i + 1,
-      }));
+    setRowData((prev) => {
+      const maxId = prev.length > 0 ? Math.max(...prev.map((r) => r.id)) : 0;
+
+      // 📅 Fecha actual 
+      const hoy = new Date();
+      const fechaFormateada = hoy.toISOString().split("T")[0] + " 00:00:00";
+
+      const newRows = rowsToCopy.map((row, i) => {
+        const newRow = {
+          ...row,
+          id: maxId + i + 1,
+          _rowStatus: RowStatus.NEW,
+        };
+
+        // 🔍 Buscar campos de fecha con tolerancia de mayúsculas
+        for (const key of Object.keys(newRow)) {
+          const keyLower = key.toLowerCase();
+          if (keyLower === "fec_creacion" || keyLower === "fec_actualizacion") {
+            newRow[key] = fechaFormateada;
+            console.log(`✅ Campo ${key} actualizado a ${fechaFormateada}`);
+          }
+        }
+
+        return newRow;
+      });
+
+      console.log("🆕 Filas copiadas:", newRows);
       return [...prev, ...newRows];
     });
   }, [setRowData]);
 }
-
-
-
