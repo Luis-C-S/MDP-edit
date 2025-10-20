@@ -1,6 +1,5 @@
 <?php
 // src/Controller/LookupController.php
-// Controlador para manejar las solicitudes de búsqueda de catálogos de referencia (traducciones de códigos a lenguaje humano)
 
 namespace App\Controller;
 
@@ -9,31 +8,40 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\DBAL\Connection;
 
-#[Route('/api/lookup')]
+#[Route('/api/lookups')]
 class LookupController extends AbstractController
 {
-    #[Route('/{table}/{field}', name: 'api_lookup', methods: ['GET'])]
-    public function lookup(string $table, string $field, Connection $conn): JsonResponse
+    #[Route('/{table}', name: 'api_lookups', methods: ['GET'])]
+    public function lookups(string $table, Connection $conn): JsonResponse
     {
-        // 1️⃣ Busca en la tabla de metadatos cómo resolver esta relación
-        $meta = $conn->fetchAssociative("
-            SELECT tabla_referencia, campo_codigo_ref, campo_descripcion_ref
-            FROM tb_mdp_codigo_relacion
-            WHERE tabla_origen = ? AND campo_codigo = ?
-            LIMIT 1
-        ", [$table, $field]);
+        // 1️⃣ Buscar todas las relaciones definidas para esta tabla
+        $fields = $conn->fetchAllAssociative("
+            SELECT codigo AS campo_codigo, nombre_descripcion AS campo_descripcion, tabla_referencia
+            FROM mdp_products._codigo_relacion
+            WHERE tabla_origen = ?
+        ", [$table]);
 
-        if (!$meta) {
-            return $this->json(['error' => 'No existe relación configurada'], 404);
+        if (!$fields) {
+            return $this->json(['error' => 'No hay relaciones configuradas para esta tabla.'], 404);
         }
 
-        // 2️⃣ Obtiene los valores del catálogo de referencia
-        $rows = $conn->fetchAllAssociative("
-            SELECT {$meta['campo_codigo_ref']} AS code, {$meta['campo_descripcion_ref']} AS label
-            FROM {$meta['tabla_referencia']}
-            ORDER BY {$meta['campo_descripcion_ref']}
-        ");
+        $result = [];
 
-        return $this->json($rows);
+        // 2️⃣ Para cada relación, cargar sus valores de referencia
+        foreach ($fields as $f) {
+            // Aseguramos que la tabla de referencia esté cualificada con el esquema correcto
+            $tablaReferencia = "mdp_products." . $f['tabla_referencia'];
+
+            $rows = $conn->fetchAllAssociative("
+                SELECT {$f['campo_codigo']} AS {$f['campo_codigo']},
+                       {$f['campo_descripcion']} AS {$f['campo_descripcion']}
+                FROM {$tablaReferencia}
+                ORDER BY {$f['campo_descripcion']}
+            ");
+
+            $result[$f['campo_codigo']] = $rows;
+        }
+
+        return $this->json($result);
     }
 }

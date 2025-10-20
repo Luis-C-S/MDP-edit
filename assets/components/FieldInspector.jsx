@@ -1,7 +1,6 @@
 // assets/components/FieldInspector.jsx
 // Componente principal para inspeccionar campos y tablas asociadas
 
-// Importaciones
 import React, { useEffect, useState, useCallback } from "react";
 import Select from "react-select";
 import { AgGridReact } from "ag-grid-react";
@@ -12,29 +11,32 @@ import loadTables from "./javascript/loadTables";
 import loadTabledata from "./javascript/loadTabledata";
 import useCopyRows from "./javascript/copyRows";
 import { RowStatus } from "./javascript/constants";
+
 // Registro de módulos de AG Grid
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 // Componente principal
 const FieldInspector = () => {
-  const fields = loadFields()
+  const fields = loadFields();
   const [selectedField, setSelectedField] = useState(null);
   const { tables, loading, error } = loadTables(selectedField);
   const [selectedTable, setSelectedTable] = useState(null);
-  const { rowData, setRowData, colDefs } = loadTabledata(selectedTable);
+
+  // ✅ Ahora también obtenemos showCodes y toggleShowCodes
+  const { rowData, setRowData, colDefs, showCodes, toggleShowCodes } =
+    loadTabledata(selectedTable);
+
   const onInsertOne = useCopyRows(setRowData);
   const [selectedRows, setSelectedRows] = useState([]);
-  const getRowId = useCallback(params => {
-    return String(params.data.id);
-  });
 
-
+  const getRowId = useCallback((params) => String(params.data.id));
 
   return (
     <div className="container mt-4">
       <h1>Inspector de Campos</h1>
 
-      <div className="mb-3" style={{ position: 'relative', zIndex: 9999 }}>
+      {/* Selector de campo */}
+      <div className="mb-3" style={{ position: "relative", zIndex: 9999 }}>
         <label htmlFor="field-select" className="form-label">
           Selecciona un campo:
         </label>
@@ -53,7 +55,7 @@ const FieldInspector = () => {
         />
       </div>
 
-
+      {/* Listado de tablas */}
       <h3>Tablas que contienen el campo:</h3>
       <ul className="list-group mb-4">
         {tables.map((table) => (
@@ -73,18 +75,22 @@ const FieldInspector = () => {
         )}
       </ul>
 
-
-
+      {/* Grid de contenido */}
       {selectedTable && (
         <>
           <h3>Contenido de la tabla: {selectedTable}</h3>
-          <div
-            className="ag-theme-quartz"
-            style={{ height: 500, width: "100%" }}
-          >
-            <div>
-              <button onClick={() => onInsertOne(selectedRows)}>Insertar Fila</button>
+
+          <div className="ag-theme-quartz" style={{ height: 500, width: "100%" }}>
+            {/* Botones de acción */}
+            <div style={{ marginBottom: "0.5rem", display: "flex", gap: "1rem" }}>
+              <button onClick={() => onInsertOne(selectedRows)}>➕ Insertar Fila</button>
+
+              {/* ✅ Nuevo botón para alternar códigos/nombres */}
+              <button onClick={toggleShowCodes}>
+                {showCodes ? "🔤 Mostrar nombres descriptivos" : "🔢 Mostrar códigos"}
+              </button>
             </div>
+
             <AgGridReact
               getRowId={getRowId}
               rowData={rowData}
@@ -109,12 +115,9 @@ const FieldInspector = () => {
 
                 // Si el valor realmente cambió
                 if (oldValue !== newValue) {
-                  // Solo marcamos como MODIFIED si no es NEW
                   if (data._rowStatus !== RowStatus.NEW) {
                     data._rowStatus = RowStatus.MODIFIED;
                   }
-
-                  // Refrescamos visualmente la fila
                   params.api.applyTransaction({ update: [data] });
                 }
               }}
