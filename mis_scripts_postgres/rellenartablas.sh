@@ -6,7 +6,7 @@
 # ==========================================
 
 CSV_DIR="/csvs_postgres"
-SCHEMA="mdp_producto"
+SCHEMA="mdp_products"
 
 # Array de archivos a procesar
 archivos=()

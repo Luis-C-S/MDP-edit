@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCHEMA="mdp_producto"
+SCHEMA="mdp_products"
 
 if [ $# -eq 0 ]; then
     tablas=$(psql -U app -d app -At -c "SELECT tablename FROM pg_tables WHERE schemaname='${SCHEMA}';")

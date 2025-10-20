@@ -8,7 +8,7 @@
 
 # Carpeta donde están los CSVs dentro del contenedor
 CSV_DIR="/csvs_postgres"
-SCHEMA="mdp_producto"
+SCHEMA="mdp_products"
 
 # Requiere al menos un parámetro
 if [ $# -eq 0 ]; then
