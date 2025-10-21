@@ -12,18 +12,19 @@ export default function useCopyRows(setRowData) {
     setRowData((prev) => {
       const maxId = prev.length > 0 ? Math.max(...prev.map((r) => r.id)) : 0;
 
-      // 📅 Fecha actual 
+      // 📅 Fecha actual formateada
       const hoy = new Date();
       const fechaFormateada = hoy.toISOString().split("T")[0] + " 00:00:00";
 
       const newRows = rowsToCopy.map((row, i) => {
-        const newRow = {
-          ...row,
-          id: maxId + i + 1,
-          _rowStatus: RowStatus.NEW,
-        };
+        // 🆕 Copiamos TODO, incluidos los metadatos (_meta_)
+        const newRow = JSON.parse(JSON.stringify(row));
 
-        // 🔍 Buscar campos de fecha con tolerancia de mayúsculas
+        // Asignamos nuevo ID y estado
+        newRow.id = maxId + i + 1;
+        newRow._rowStatus = RowStatus.NEW;
+
+        // 🔁 Actualizamos campos de fecha
         for (const key of Object.keys(newRow)) {
           const keyLower = key.toLowerCase();
           if (keyLower === "fec_creacion" || keyLower === "fec_actualizacion") {
@@ -35,7 +36,7 @@ export default function useCopyRows(setRowData) {
         return newRow;
       });
 
-      console.log("🆕 Filas copiadas:", newRows);
+      console.log("🆕 Filas copiadas (con metadatos):", newRows);
       return [...prev, ...newRows];
     });
   }, [setRowData]);

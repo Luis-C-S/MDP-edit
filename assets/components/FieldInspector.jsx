@@ -10,6 +10,7 @@ import loadFields from "./javascript/loadFields";
 import loadTables from "./javascript/loadTables";
 import loadTabledata from "./javascript/loadTabledata";
 import useCopyRows from "./javascript/copyRows";
+import useDeleteRows from "./javascript/deleteRows";
 import { RowStatus } from "./javascript/constants";
 
 // Registro de módulos de AG Grid
@@ -27,6 +28,7 @@ const FieldInspector = () => {
     loadTabledata(selectedTable);
 
   const onInsertOne = useCopyRows(setRowData);
+  const onDeleteRows = useDeleteRows(setRowData);
   const [selectedRows, setSelectedRows] = useState([]);
 
   const getRowId = useCallback((params) => String(params.data.id));
@@ -84,6 +86,7 @@ const FieldInspector = () => {
             {/* Botones de acción */}
             <div style={{ marginBottom: "0.5rem", display: "flex", gap: "1rem" }}>
               <button onClick={() => onInsertOne(selectedRows)}>➕ Insertar Fila</button>
+              <button onClick={() => onDeleteRows(selectedRows)}>🗑️ Borrar/Restaurar Filas</button>
 
               {/* ✅ Nuevo botón para alternar códigos/nombres */}
               <button onClick={toggleShowCodes}>
@@ -102,6 +105,8 @@ const FieldInspector = () => {
                 if (params.data?._rowStatus === RowStatus.MODIFIED) {
                   return { backgroundColor: "#ffe4b3" }; // naranja claro
                 }
+                if (params.data?._rowStatus === RowStatus.DELETED)
+                  return { backgroundColor: "#f8d4d4", textDecoration: "line-through" };
                 return null;
               }}
               columnDefs={colDefs}
