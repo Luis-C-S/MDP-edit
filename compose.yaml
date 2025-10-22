@@ -1,9 +1,6 @@
 services:
-  # 🧠 Symfony (aplicación principal)
   symfony:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: shinsenter/symfony:latest
     ports:
       - "8080:80"
     volumes:
@@ -14,7 +11,6 @@ services:
       DATABASE_URL: "pgsql://app:app@postgres:5432/app?serverVersion=16&options=-csearch_path=mdp_products,public"
       MAILER_DSN: "smtp://localhost:25"
 
-  # 🐘 PostgreSQL (base de datos principal)
   postgres:
     image: postgres:16-alpine
     restart: always
@@ -29,7 +25,6 @@ services:
       - ./mis_scripts_postgres:/scripts
       - ./mis_csvs:/csvs_postgres
 
-  # 🧩 pgAdmin (interfaz web de gestión de PostgreSQL)
   pgadmin:
     image: dpage/pgadmin4:9.8
     restart: always
@@ -42,6 +37,15 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     volumes:
       - pgadmin_data:/var/lib/pgadmin
+
+  node:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - "3035:3000"
+    command: sh -c "npm install && npm run dev"
 
 volumes:
   database_data:
