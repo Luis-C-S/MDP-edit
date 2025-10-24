@@ -16,7 +16,9 @@ export default function loadTabledata(selectedTable) {
     if (!selectedTable) return;
 
     const fetchTable = fetch(`/tabla/${selectedTable}`).then((res) => res.json());
-    const fetchLookups = fetch(`/api/lookups/${selectedTable}`).then((res) => res.json());
+    const fetchLookups = fetch(`/api/lookups/${selectedTable}`).then((res) =>
+      res.json()
+    );
 
     Promise.all([fetchTable, fetchLookups])
       .then(([data, lookups]) => {
@@ -30,6 +32,7 @@ export default function loadTabledata(selectedTable) {
         const enhancedRows = data.map((row, index) => {
           const newRow = { id: index + 1, _rowStatus: RowStatus.ORIGINAL, ...row };
 
+          // Crear metadatos para columnas lookup
           Object.keys(lookups).forEach((field) => {
             const lookupList = lookups[field];
             const codeValue = row[field];
@@ -53,56 +56,72 @@ export default function loadTabledata(selectedTable) {
 
         if (enhancedRows.length > 0) {
           const dynamicCols = Object.keys(enhancedRows[0])
-            .filter((key) => key !== "id" && key !== "_rowStatus" && !key.startsWith("_meta_"))
+            .filter(
+              (key) => key !== "id" && key !== "_rowStatus" && !key.startsWith("_meta_")
+            )
             .map((key) => {
               const isLookup = Object.keys(lookups).includes(key);
+
               return {
                 field: key,
                 headerName: key,
                 sortable: true,
                 filter: true,
                 resizable: true,
-                editable: isLookup,
-                cellEditor: isLookup ? "agSelectCellEditor" : undefined,
-                cellEditorParams: isLookup
+                editable: true, // 🔹 todas las columnas editables
+                ...(isLookup
                   ? {
-                      values: lookups[key].map((l) => {
-                        const descField = Object.keys(l).find((k) => k !== key);
-                        return showCodes ? l[key] : l[descField];
-                      }),
+                      cellEditor: "agSelectCellEditor",
+                      cellEditorParams: {
+                        values: lookups[key].map((l) => {
+                          const descField = Object.keys(l).find((k) => k !== key);
+                          return showCodes ? l[key] : l[descField];
+                        }),
+                      },
+                      valueGetter: (params) => {
+                        const metaDesc = params.data[`_meta_${key}_desc`];
+                        const metaCode = params.data[`_meta_${key}_code`];
+                        if (metaDesc && metaCode) return showCodes ? metaCode : metaDesc;
+                        return params.data[key];
+                      },
+                      valueSetter: (params) => {
+                        const selectedValue = params.newValue;
+                        const lookupList = lookups[key];
+                        const match =
+                          lookupList &&
+                          lookupList.find((l) => {
+                            const descField = Object.keys(l).find((k) => k !== key);
+                            return l[key] === selectedValue || l[descField] === selectedValue;
+                          });
+
+                        if (match) {
+                          const code = match[key];
+                          const desc =
+                            match[Object.keys(match).find((k) => k !== key)];
+                          params.data[`_meta_${key}_code`] = code;
+                          params.data[`_meta_${key}_desc`] = desc;
+                          params.data[key] = code;
+                          if (params.data._rowStatus !== RowStatus.NEW) {
+                            params.data._rowStatus = RowStatus.MODIFIED;
+                          }
+                          return true;
+                        }
+                        return false;
+                      },
                     }
-                  : undefined,
-                valueGetter: (params) => {
-                  const metaDesc = params.data[`_meta_${key}_desc`];
-                  const metaCode = params.data[`_meta_${key}_code`];
-                  if (metaDesc && metaCode) {
-                    return showCodes ? metaCode : metaDesc;
-                  }
-                  return params.data[key];
-                },
-                valueSetter: (params) => {
-                  const selectedValue = params.newValue;
-                  const lookupList = lookups[key];
-
-                  const match =
-                    lookupList &&
-                    lookupList.find((l) => {
-                      const descField = Object.keys(l).find((k) => k !== key);
-                      return (
-                        l[key] === selectedValue || l[descField] === selectedValue
-                      );
-                    });
-
-                  if (match) {
-                    const code = match[key];
-                    const desc = match[Object.keys(match).find((k) => k !== key)];
-                    params.data[`_meta_${key}_code`] = code;
-                    params.data[`_meta_${key}_desc`] = desc;
-                    params.data[key] = code;
-                    return true;
-                  }
-                  return false;
-                },
+                  : {
+                      // Columnas normales editable simple
+                      valueSetter: (params) => {
+                        if (params.oldValue !== params.newValue) {
+                          params.data[key] = params.newValue;
+                          if (params.data._rowStatus !== RowStatus.NEW) {
+                            params.data._rowStatus = RowStatus.MODIFIED;
+                          }
+                          return true;
+                        }
+                        return false;
+                      },
+                    }),
               };
             });
 
@@ -114,6 +133,7 @@ export default function loadTabledata(selectedTable) {
       .catch((err) => console.error("Error cargando datos o lookups:", err));
   }, [selectedTable]);
 
+  // Actualiza valueGetter y cellEditorParams al cambiar showCodes
   useEffect(() => {
     setColDefs((prevCols) =>
       prevCols.map((col) => {
@@ -125,9 +145,7 @@ export default function loadTabledata(selectedTable) {
           valueGetter: (params) => {
             const metaDesc = params.data[`_meta_${col.field}_desc`];
             const metaCode = params.data[`_meta_${col.field}_code`];
-            if (metaDesc && metaCode) {
-              return showCodes ? metaCode : metaDesc;
-            }
+            if (metaDesc && metaCode) return showCodes ? metaCode : metaDesc;
             return params.data[col.field];
           },
           cellEditorParams: {
@@ -158,9 +176,10 @@ export default function loadTabledata(selectedTable) {
         return;
       }
 
-      const descField = lookupList.length > 0
-        ? Object.keys(lookupList[0]).find((k) => k !== field)
-        : null;
+      const descField =
+        lookupList.length > 0
+          ? Object.keys(lookupList[0]).find((k) => k !== field)
+          : null;
 
       if (!descField) {
         newFilters[field] = filter;
@@ -170,9 +189,7 @@ export default function loadTabledata(selectedTable) {
       const translatedValue = lookupList.find((item) => {
         const code = item[field];
         const desc = item[descField];
-        return showCodes
-          ? code === filter.filter
-          : desc === filter.filter;
+        return showCodes ? code === filter.filter : desc === filter.filter;
       });
 
       if (translatedValue) {

@@ -12,6 +12,8 @@ import loadTabledata from "./javascript/loadTabledata";
 import useCopyRows from "./javascript/copyRows";
 import useDeleteRows from "./javascript/deleteRows";
 import { RowStatus } from "./javascript/constants";
+import updateBBDD from "./javascript/updateBBDD";
+
 
 // Registro de módulos de AG Grid
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -91,6 +93,9 @@ const FieldInspector = () => {
               {/* ✅ Nuevo botón para alternar códigos/nombres */}
               <button onClick={toggleShowCodes}>
                 {showCodes ? "🔤 Mostrar nombres descriptivos" : "🔢 Mostrar códigos"}
+              </button>
+              <button onClick={() => updateBBDD(selectedTable, rowData, setRowData)}>
+                💾 Actualizar BBDD
               </button>
             </div>
 
