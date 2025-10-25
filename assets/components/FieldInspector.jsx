@@ -1,7 +1,5 @@
 // assets/components/FieldInspector.jsx
-// Componente principal para inspeccionar campos y tablas asociadas
-
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import Select from "react-select";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-theme-quartz.css";
@@ -14,19 +12,17 @@ import useDeleteRows from "./javascript/deleteRows";
 import { RowStatus } from "./javascript/constants";
 import updateBBDD from "./javascript/updateBBDD";
 
-
 // Registro de módulos de AG Grid
 ModuleRegistry.registerModules([AllCommunityModule]);
 
-// Componente principal
 const FieldInspector = () => {
   const fields = loadFields();
   const [selectedField, setSelectedField] = useState(null);
-  const { tables, loading, error } = loadTables(selectedField);
+  const { tables } = loadTables(selectedField);
   const [selectedTable, setSelectedTable] = useState(null);
 
-  // ✅ Ahora también obtenemos showCodes y toggleShowCodes
-  const { rowData, setRowData, colDefs, showCodes, toggleShowCodes } =
+  // 🔹 Hook de datos del grid
+  const { rowData, setRowData, colDefs, showCodes, toggleShowCodes, reloadGrid } =
     loadTabledata(selectedTable);
 
   const onInsertOne = useCopyRows(setRowData);
@@ -90,11 +86,12 @@ const FieldInspector = () => {
               <button onClick={() => onInsertOne(selectedRows)}>➕ Insertar Fila</button>
               <button onClick={() => onDeleteRows(selectedRows)}>🗑️ Borrar/Restaurar Filas</button>
 
-              {/* ✅ Nuevo botón para alternar códigos/nombres */}
               <button onClick={toggleShowCodes}>
                 {showCodes ? "🔤 Mostrar nombres descriptivos" : "🔢 Mostrar códigos"}
               </button>
-              <button onClick={() => updateBBDD(selectedTable, rowData, setRowData)}>
+
+              {/* Actualiza BBDD y recarga desde el servidor */}
+              <button onClick={() => updateBBDD(selectedTable, rowData, setRowData, reloadGrid)}>
                 💾 Actualizar BBDD
               </button>
             </div>
@@ -103,33 +100,24 @@ const FieldInspector = () => {
               getRowId={getRowId}
               rowData={rowData}
               rowSelection="multiple"
-              getRowStyle={(params) => {
-                if (params.data?._rowStatus === RowStatus.NEW) {
-                  return { backgroundColor: "#d4f8d4" }; // verde claro
-                }
-                if (params.data?._rowStatus === RowStatus.MODIFIED) {
-                  return { backgroundColor: "#ffe4b3" }; // naranja claro
-                }
-                if (params.data?._rowStatus === RowStatus.DELETED)
-                  return { backgroundColor: "#f8d4d4", textDecoration: "line-through" };
-                return null;
-              }}
               columnDefs={colDefs}
-              defaultColDef={{
-                resizable: true,
-                editable: true,
-              }}
+              defaultColDef={{ resizable: true, editable: true }}
               onSelectionChanged={(e) => setSelectedRows(e.api.getSelectedRows())}
               onCellValueChanged={(params) => {
                 const { data, oldValue, newValue } = params;
-
-                // Si el valor realmente cambió
-                if (oldValue !== newValue) {
-                  if (data._rowStatus !== RowStatus.NEW) {
-                    data._rowStatus = RowStatus.MODIFIED;
-                  }
+                if (oldValue !== newValue && data._rowStatus !== RowStatus.NEW) {
+                  data._rowStatus = RowStatus.MODIFIED;
                   params.api.applyTransaction({ update: [data] });
                 }
+              }}
+              getRowStyle={(params) => {
+                if (params.data?._rowStatus === RowStatus.NEW)
+                  return { backgroundColor: "#d4f8d4" };
+                if (params.data?._rowStatus === RowStatus.MODIFIED)
+                  return { backgroundColor: "#ffe4b3" };
+                if (params.data?._rowStatus === RowStatus.DELETED)
+                  return { backgroundColor: "#f8d4d4", textDecoration: "line-through" };
+                return null;
               }}
             />
           </div>
