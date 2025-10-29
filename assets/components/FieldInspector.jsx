@@ -11,6 +11,8 @@ import useCopyRows from "./javascript/copyRows";
 import useDeleteRows from "./javascript/deleteRows";
 import { RowStatus } from "./javascript/constants";
 import updateBBDD from "./javascript/updateBBDD";
+import exportToExcel from "./javascript/exportToExcel";
+
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -129,6 +131,13 @@ const FieldInspector = () => {
               >
                 💾 Actualizar BBDD
               </button>
+
+
+              <button onClick={() => exportToExcel(colDefs, gridRef.current.api, selectedTable)}>
+                📤 Exportar filtrado a Excel
+              </button>
+
+
             </div>
 
             {/* Grid */}
