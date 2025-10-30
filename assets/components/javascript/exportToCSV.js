@@ -1,3 +1,5 @@
+//assets/components/javascript/exportToCSV.js
+
 const exportToCsv = (colDefs, gridApi, selectedTable = "datos") => {
   const headers = colDefs.map(col => col.headerName || col.field);
   const fields = colDefs.map(col => col.field);
