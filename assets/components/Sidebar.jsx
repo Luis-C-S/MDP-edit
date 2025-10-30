@@ -7,7 +7,7 @@ const Sidebar = () => {
       <nav>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           <li><Link to="/field-inspector">Field Inspector</Link></li>
-          <li><Link to="/paste-table">Paste Table</Link></li>
+          <li><Link to="/info-producto">Información Producto</Link></li>
           {/* Más enlaces aquí */}
         </ul>
       </nav>

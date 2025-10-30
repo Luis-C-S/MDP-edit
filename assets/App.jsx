@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import FieldInspector from './components/FieldInspector';
+import InfoProducto from './components/InfoProducto';
 // Aquí irás agregando más componentes
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
       <div style={{ flex: 1, padding: '1rem' }}>
         <Routes>
           <Route path="/field-inspector" element={<FieldInspector />} />
+          <Route path="/info-producto" element={<InfoProducto />} />
         </Routes>
       </div>
     </div>
