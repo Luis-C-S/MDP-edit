@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\DBAL\Connection;
@@ -98,5 +99,83 @@ class InfoProductoController extends AbstractController
         ], $modalidades);
 
         return new JsonResponse($options);
+    }
+
+    #[Route('/api/ambitos', name: 'api_ambitos')]
+    public function obtenerAmbitos(Request $request, Connection $conn): JsonResponse
+    {
+        $codProductoComercial = $request->query->get('cod_producto_comercial');
+
+        $sql = "
+        SELECT DISTINCT z.cod_ambito, a.nom_ambito
+        FROM mdp_products.tb_mdp_producto_zona z
+        JOIN mdp_products.tb_mdp_ambito a ON z.cod_ambito = a.cod_ambito
+        WHERE z.cod_producto_comercial = :codProductoComercial
+    ";
+
+        $result = $conn->fetchAllAssociative($sql, [
+            'codProductoComercial' => $codProductoComercial,
+        ]);
+
+        return $this->json($result);
+    }
+
+    #[Route('/api/precios', name: 'api_precios')]
+    public function precios(Request $request, Connection $conn): JsonResponse
+    {
+        $producto = $request->query->get('producto');
+        $perfil = $request->query->get('perfil');
+        $modalidad = $request->query->get('modalidad');
+        $ambito = $request->query->get('ambito');
+
+        if (!$producto || !$perfil || !$modalidad || !$ambito) {
+            return $this->json(['error' => 'Faltan parámetros'], 400);
+        }
+
+        $codProductoComercial = $producto . $perfil;
+
+        // 1. Obtener cod_zona_tarif desde tb_mdp_producto_zona
+        $zonasTarif = $conn->fetchFirstColumn("
+        SELECT DISTINCT cod_zona_tarif
+        FROM mdp_products.tb_mdp_producto_zona
+        WHERE cod_producto_comercial = :codProductoComercial
+          AND cod_modalidad = :codModalidad
+          AND cod_ambito = :codAmbito
+    ", [
+            'codProductoComercial' => $codProductoComercial,
+            'codModalidad' => $modalidad,
+            'codAmbito' => $ambito,
+        ]);
+
+        if (empty($zonasTarif)) {
+            return $this->json([]);
+        }
+
+        // 2. Obtener precios desde tb_mdp_zona_tramo
+        $datos = $conn->fetchAllAssociative("
+        SELECT
+            zt.cod_zona_tarif,
+            zt.cod_tramo,
+            zt.importe_tramo,
+            tz.nom_zona_tarif,
+            ti.nom_tramo
+        FROM mdp_products.tb_mdp_zona_tramo zt
+        JOIN mdp_products.tb_mdp_zona_tarifaria tz ON zt.cod_zona_tarif = tz.cod_zona_tarif
+        JOIN mdp_products.tb_mdp_tramo_idioma ti ON zt.cod_tramo = ti.cod_tramo
+        WHERE zt.cod_zona_tarif IN (:zonasTarif)
+    ", [
+            'zonasTarif' => $zonasTarif,
+        ], [
+            'zonasTarif' => Connection::PARAM_STR_ARRAY,
+        ]);
+
+        // 3. Formatear JSON
+        $resultado = array_map(fn($row) => [
+            'zona' => $row['nom_zona_tarif'],
+            'peso' => $row['nom_tramo'],
+            'precio' => (float) $row['importe_tramo'],
+        ], $datos);
+
+        return $this->json($resultado);
     }
 }

@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Select from "react-select";
+import { AgGridReact } from "ag-grid-react";
+import "ag-grid-community/styles/ag-theme-quartz.css";
+import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 const InfoProducto = () => {
     const [productos, setProductos] = useState([]);
@@ -8,68 +12,152 @@ const InfoProducto = () => {
     const [selectedPerfil, setSelectedPerfil] = useState(null);
     const [modalidades, setModalidades] = useState([]);
     const [selectedModalidad, setSelectedModalidad] = useState(null);
+    const [ambitos, setAmbitos] = useState([]);
+    const [selectedAmbito, setSelectedAmbito] = useState(null);
+    const [zonas, setZonas] = useState([]);
+    const [pesos, setPesos] = useState([]);
+    const [rowData, setRowData] = useState([]);
 
-    // Cargar productos al montar
+    const gridRef = useRef();
+
+    // Cargar productos
     useEffect(() => {
         fetch("/api/producto")
-            .then(response => {
-                if (!response.ok) throw new Error("Error al obtener productos");
-                return response.json();
-            })
-            .then(data => setProductos(data))
-            .catch(error => console.error("Error al cargar productos:", error));
+            .then((res) => res.json())
+            .then(setProductos)
+            .catch((err) => console.error("Error al cargar productos:", err));
     }, []);
 
-    // Cargar perfiles cuando se selecciona un producto
+    // Cargar perfiles
     useEffect(() => {
         if (selectedProducto?.value) {
             fetch(`/api/perfil/${selectedProducto.value}`)
-                .then(response => {
-                    if (!response.ok) throw new Error("Error al obtener perfiles");
-                    return response.json();
-                })
-                .then(data => setPerfiles(data))
-                .catch(error => console.error("Error al cargar perfiles:", error));
+                .then((res) => res.json())
+                .then(setPerfiles)
+                .catch((err) =>
+                    console.error("Error al cargar perfiles:", err)
+                );
         } else {
             setPerfiles([]);
             setSelectedPerfil(null);
         }
     }, [selectedProducto]);
 
-    // Cargar modalidades cuando se selecciona un producto
+    // Cargar modalidades
     useEffect(() => {
         if (selectedProducto?.value && selectedPerfil?.value) {
-            fetch(`/api/modalidad/${selectedProducto.value}/${selectedPerfil.value}`)
-                .then(response => {
-                    if (!response.ok) throw new Error("Error al obtener modalidades");
-                    return response.json();
-                })
-                .then(data => setModalidades(data))
-                .catch(error => console.error("Error al cargar modalidades:", error));
+            fetch(
+                `/api/modalidad/${selectedProducto.value}/${selectedPerfil.value}`
+            )
+                .then((res) => res.json())
+                .then(setModalidades)
+                .catch((err) =>
+                    console.error("Error al cargar modalidades:", err)
+                );
         } else {
             setModalidades([]);
             setSelectedModalidad(null);
         }
     }, [selectedProducto, selectedPerfil]);
 
+    // Cargar ámbitos
+    useEffect(() => {
+        if (selectedProducto && selectedPerfil) {
+            const codProductoComercial = `${selectedProducto.value}${selectedPerfil.value}`;
+            fetch(`/api/ambitos?cod_producto_comercial=${codProductoComercial}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    const opciones = data.map(({ cod_ambito, nom_ambito }) => ({
+                        value: cod_ambito,
+                        label: nom_ambito,
+                    }));
+                    setAmbitos(opciones);
+                });
+        } else {
+            setAmbitos([]);
+            setSelectedAmbito(null);
+        }
+    }, [selectedProducto, selectedPerfil]);
 
-    return (
+    // Cargar precios y preparar datos para AG Grid
+    useEffect(() => {
+        if (
+            selectedProducto &&
+            selectedPerfil &&
+            selectedModalidad &&
+            selectedAmbito
+        ) {
+            fetch(
+                `/api/precios?producto=${selectedProducto.value}&perfil=${selectedPerfil.value}&modalidad=${selectedModalidad.value}&ambito=${selectedAmbito.value}`
+            )
+                .then((res) => res.json())
+                .then((data) => {
+                    const zonasSet = new Set();
+                    const pesosSet = new Set();
+                    const preciosMap = {};
+
+                    data.forEach(({ zona, peso, precio }) => {
+                        zonasSet.add(zona);
+                        pesosSet.add(peso);
+                        if (!preciosMap[peso]) preciosMap[peso] = {};
+                        preciosMap[peso][zona] = precio;
+                    });
+
+                    const zonasArr = Array.from(zonasSet);
+                    const pesosArr = Array.from(pesosSet);
+
+                    setZonas(zonasArr);
+                    setPesos(pesosArr);
+
+                    // Preparar rowData para AG Grid
+                    const rows = pesosArr.map((peso) => {
+                        const row = { peso };
+                        zonasArr.forEach((zona) => {
+                            row[zona] = preciosMap[peso]?.[zona] ?? "-";
+                        });
+                        return row;
+                    });
+                    setRowData(rows);
+                });
+        } else {
+            setZonas([]);
+            setPesos([]);
+            setRowData([]);
+        }
+    }, [selectedProducto, selectedPerfil, selectedModalidad, selectedAmbito]);
+
+    // Definir columnas para AG Grid
+    const colDefs = [
+        {
+            headerName: "Peso / Zona",
+            field: "peso",
+            width: 220,
+            cellStyle: { fontWeight: "bold", backgroundColor: "#f4f4f4" },
+        },
+        ...zonas.map((zona) => ({
+            headerName: zona,
+            field: zona,
+            width: 160,
+            cellStyle: { textAlign: "center" },
+        })),
+    ];
+
+    
+return (
         <div className="container mt-1" style={{ paddingBottom: "2rem" }}>
             <h1>Información de producto</h1>
-            <div
-                className="info-producto-panel"
-                style={{
-                    width: "25%",
-                    minWidth: "250px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "0.5rem",
-                }}
-            >
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    <label htmlFor="producto" style={{ marginBottom: "0.2rem" }}>
-                        Producto
-                    </label>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: "1rem" }}>
+                {/* Panel izquierdo con selects */}
+                <div
+                    className="info-producto-panel"
+                    style={{
+                        width: "200px", // 🔹 más estrecho para pegarlo al sidebar
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "0.6rem",
+                    }}
+                >
+                    <label htmlFor="producto">Producto</label>
                     <Select
                         id="producto"
                         options={productos}
@@ -77,18 +165,9 @@ const InfoProducto = () => {
                         onChange={setSelectedProducto}
                         placeholder="Selecciona un producto"
                         isClearable
-                        closeMenuOnSelect
-                        blurInputOnSelect
-                        filterOption={(option, inputValue) =>
-                            option.label.toLowerCase().includes(inputValue.toLowerCase())
-                        }
                     />
-                </div>
 
-                <div style={{ display: "flex", flexDirection: "column", marginTop: "0.5rem" }}>
-                    <label htmlFor="perfil" style={{ marginBottom: "0.2rem" }}>
-                        Perfil
-                    </label>
+                    <label htmlFor="perfil">Perfil</label>
                     <Select
                         id="perfil"
                         options={perfiles}
@@ -96,18 +175,10 @@ const InfoProducto = () => {
                         onChange={setSelectedPerfil}
                         placeholder="Selecciona un perfil"
                         isClearable
-                        closeMenuOnSelect
-                        blurInputOnSelect
                         isDisabled={!selectedProducto}
-                        filterOption={(option, inputValue) =>
-                            option.label.toLowerCase().includes(inputValue.toLowerCase())
-                        }
                     />
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", marginTop: "0.5rem" }}>
-                    <label htmlFor="modalidad" style={{ marginBottom: "0.2rem" }}>
-                        Modalidad
-                    </label>
+
+                    <label htmlFor="modalidad">Modalidad</label>
                     <Select
                         id="modalidad"
                         options={modalidades}
@@ -115,13 +186,45 @@ const InfoProducto = () => {
                         onChange={setSelectedModalidad}
                         placeholder="Selecciona una modalidad"
                         isClearable
-                        closeMenuOnSelect
-                        blurInputOnSelect
                         isDisabled={!selectedProducto || !selectedPerfil}
-                        filterOption={(option, inputValue) =>
-                            option.label.toLowerCase().includes(inputValue.toLowerCase())
-                        }
                     />
+
+                    <label htmlFor="ambito">Ámbito</label>
+                    <Select
+                        id="ambito"
+                        options={ambitos}
+                        value={selectedAmbito}
+                        onChange={setSelectedAmbito}
+                        placeholder="Selecciona un ámbito"
+                        isClearable
+                        isDisabled={!selectedProducto || !selectedPerfil}
+                    />
+                </div>
+
+                {/* Panel derecho con AG Grid */}
+                <div style={{ flexGrow: 1 }}>
+                    <h3 style={{ marginBottom: "0.8rem" }}>Tabla de precios</h3>
+                    <div
+                        className="ag-theme-quartz"
+                        style={{
+                            height: "500px", // 🔹 altura fija para scroll
+                            width: "100%",
+                            marginBottom: "3rem", // 🔹 margen inferior
+                            overflow: "auto", // 🔹 scroll activado
+                        }}
+                    >
+                        <AgGridReact
+                            ref={gridRef}
+                            rowData={rowData}
+                            columnDefs={colDefs}
+                            domLayout="normal" // 🔹 permite scroll
+                            defaultColDef={{
+                                resizable: true,
+                            }}
+                            suppressRowClickSelection={true}
+                            rowSelection="none"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
