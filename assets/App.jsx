@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div style={{ display: 'flex' }}>
       <Sidebar />
-      <div style={{ flex: 1, paddingLeft: '0.5rem' }}> {/* 🔹 reducido */}
+      <div style={{ flex: 1, paddingLeft: '0.5rem' }}> 
         <Routes>
           <Route path="/field-inspector" element={<FieldInspector />} />
           <Route path="/info-producto" element={<InfoProducto />} />

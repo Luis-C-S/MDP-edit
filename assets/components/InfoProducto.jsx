@@ -142,16 +142,16 @@ const InfoProducto = () => {
         })),
     ];
 
-    
-return (
-        <div className="container mt-1" style={{ paddingBottom: "2rem" }}>
+
+    return (
+        <div style={{ width: "80%", margin: "0 auto", paddingTop: "1rem", paddingBottom: "2rem" }}>
             <h1>Información de producto</h1>
             <div style={{ display: "flex", alignItems: "flex-start", gap: "1rem" }}>
                 {/* Panel izquierdo con selects */}
                 <div
                     className="info-producto-panel"
                     style={{
-                        width: "200px", // 🔹 más estrecho para pegarlo al sidebar
+                        width: "300px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "0.6rem",
@@ -202,30 +202,60 @@ return (
                 </div>
 
                 {/* Panel derecho con AG Grid */}
-                <div style={{ flexGrow: 1 }}>
-                    <h3 style={{ marginBottom: "0.8rem" }}>Tabla de precios</h3>
-                    <div
-                        className="ag-theme-quartz"
-                        style={{
-                            height: "500px", // 🔹 altura fija para scroll
-                            width: "100%",
-                            marginBottom: "3rem", // 🔹 margen inferior
-                            overflow: "auto", // 🔹 scroll activado
-                        }}
-                    >
-                        <AgGridReact
-                            ref={gridRef}
-                            rowData={rowData}
-                            columnDefs={colDefs}
-                            domLayout="normal" // 🔹 permite scroll
-                            defaultColDef={{
-                                resizable: true,
+                {rowData.length > 0 && (
+                    <div style={{ flexGrow: 1 }}>
+                        <h3 style={{ marginBottom: "0.8rem" }}>Tabla de precios</h3>
+                        <div
+                            className="ag-theme-quartz"
+                            style={{
+                                height: "500px",
+                                width: "80%",
+                                marginBottom: "3rem",
+                                overflow: "auto",
                             }}
-                            suppressRowClickSelection={true}
-                            rowSelection="none"
-                        />
+                        >
+                            <AgGridReact
+                                ref={gridRef}
+                                rowData={rowData}
+                                columnDefs={[
+                                    {
+                                        ...colDefs[0],
+                                        pinned: "left",
+                                        wrapHeaderText: true,
+                                        autoHeaderHeight: true,
+                                        cellStyle: { textAlign: "left", paddingLeft: "0.5rem" },
+                                    },
+                                    ...colDefs.slice(1).map((col) => ({
+                                        ...col,
+                                        wrapHeaderText: true,
+                                        autoHeaderHeight: true,
+                                        cellStyle: {
+                                            textAlign: "right",
+                                            paddingRight: "0.5rem",
+                                        },
+                                        valueFormatter: (params) =>
+                                            typeof params.value === "number"
+                                                ? params.value.toLocaleString("es-ES", {
+                                                    style: "currency",
+                                                    currency: "EUR",
+                                                    minimumFractionDigits: 2,
+                                                })
+                                                : params.value,
+                                    })),
+                                ]}
+                                domLayout="normal"
+                                defaultColDef={{
+                                    resizable: true,
+                                    autoHeaderHeight: true,
+                                }}
+                                suppressRowClickSelection={true}
+                                rowSelection="none"
+                                headerHeight={null}
+                                pinnedTopRowData={[]}
+                            />
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </div>
     );
