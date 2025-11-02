@@ -62,9 +62,10 @@ const InfoProducto = () => {
 
     // Cargar ámbitos
     useEffect(() => {
-        if (selectedProducto && selectedPerfil) {
+        if (selectedProducto && selectedPerfil && selectedModalidad) {
             const codProductoComercial = `${selectedProducto.value}${selectedPerfil.value}`;
-            fetch(`/api/ambitos?cod_producto_comercial=${codProductoComercial}`)
+            const codModalidad = selectedModalidad ? selectedModalidad.value : null;
+            fetch(`/api/ambitos?cod_producto_comercial=${codProductoComercial}&cod_modalidad=${codModalidad}`)
                 .then((res) => res.json())
                 .then((data) => {
                     const opciones = data.map(({ cod_ambito, nom_ambito }) => ({
@@ -77,7 +78,7 @@ const InfoProducto = () => {
             setAmbitos([]);
             setSelectedAmbito(null);
         }
-    }, [selectedProducto, selectedPerfil]);
+    }, [selectedProducto, selectedPerfil, selectedModalidad]);
 
     // Cargar precios y preparar datos para AG Grid
     useEffect(() => {

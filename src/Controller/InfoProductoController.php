@@ -101,20 +101,24 @@ class InfoProductoController extends AbstractController
         return new JsonResponse($options);
     }
 
+    // 
     #[Route('/api/ambitos', name: 'api_ambitos')]
     public function obtenerAmbitos(Request $request, Connection $conn): JsonResponse
     {
         $codProductoComercial = $request->query->get('cod_producto_comercial');
+        $codModalidad = $request->query->get('cod_modalidad');
 
         $sql = "
         SELECT DISTINCT z.cod_ambito, a.nom_ambito
         FROM mdp_products.tb_mdp_producto_zona z
         JOIN mdp_products.tb_mdp_ambito a ON z.cod_ambito = a.cod_ambito
         WHERE z.cod_producto_comercial = :codProductoComercial
+        AND z.cod_modalidad = :codModalidad
     ";
 
         $result = $conn->fetchAllAssociative($sql, [
             'codProductoComercial' => $codProductoComercial,
+            'codModalidad' => $codModalidad,
         ]);
 
         return $this->json($result);
@@ -126,7 +130,7 @@ class InfoProductoController extends AbstractController
         $producto = $request->query->get('producto');
         $perfil = $request->query->get('perfil');
         $modalidad = $request->query->get('modalidad');
-        $ambito = $request->query->get('ambito');
+        $ambito = $request->query->get('ambito');  
 
         if (!$producto || !$perfil || !$modalidad || !$ambito) {
             return $this->json(['error' => 'Faltan parámetros'], 400);
@@ -134,7 +138,7 @@ class InfoProductoController extends AbstractController
 
         $codProductoComercial = $producto . $perfil;
 
-        // 1. Obtener cod_zona_tarif desde tb_mdp_producto_zona
+        // Obtener cod_zona_tarif desde tb_mdp_producto_zona
         $zonasTarif = $conn->fetchFirstColumn("
         SELECT DISTINCT cod_zona_tarif
         FROM mdp_products.tb_mdp_producto_zona
@@ -151,7 +155,7 @@ class InfoProductoController extends AbstractController
             return $this->json([]);
         }
 
-        // 2. Obtener precios desde tb_mdp_zona_tramo
+        // Obtener precios desde tb_mdp_zona_tramo
         $datos = $conn->fetchAllAssociative("
         SELECT
             zt.cod_zona_tarif,
