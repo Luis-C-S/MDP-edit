@@ -104,9 +104,7 @@ const WorldMap = () => {
     <div
       style={{
         display: 'flex',
-        width: '100%',
-        maxWidth: '1600px',
-        height: '600px',
+        width: '85%',
         margin: '0 auto',
       }}
     >
@@ -165,7 +163,7 @@ const WorldMap = () => {
         />
       </div>
 
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, backgroundColor: "#cce6ff" }}>
         <ComposableMap projection="geoEqualEarth" projectionConfig={{ scale: 150 }}>
           <Geographies geography={geoData}>
             {({ geographies }) => {
@@ -186,8 +184,8 @@ const WorldMap = () => {
                   }}
                   style={{
                     default: {
-                      fill: paises.includes(geo.properties?.iso_a3_eh) ? '#4CAF50' : 'transparent',
-                      stroke: '#333',
+                      fill: paises?.includes(geo.properties?.iso_a3_eh) ? '#4CAF50' : '#d2b48c',
+                      stroke: '#835212ff',
                       strokeWidth: 0.5,
                       outline: 'none',
                     },

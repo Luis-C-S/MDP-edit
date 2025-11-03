@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\ArrayParameterType;
 
+
 class InfoProductoController extends AbstractController
 {
     private Connection $connection;
@@ -167,10 +168,11 @@ class InfoProductoController extends AbstractController
         JOIN mdp_products.tb_mdp_zona_tarifaria tz ON zt.cod_zona_tarif = tz.cod_zona_tarif
         JOIN mdp_products.tb_mdp_tramo_idioma ti ON zt.cod_tramo = ti.cod_tramo
         WHERE zt.cod_zona_tarif IN (:zonasTarif)
+        ORDER BY zt.cod_tramo
     ", [
             'zonasTarif' => $zonasTarif,
         ], [
-            'zonasTarif' => Connection::PARAM_STR_ARRAY,
+            'zonasTarif' => ArrayParameterType::STRING,
         ]);
 
         // 3. Formatear JSON
